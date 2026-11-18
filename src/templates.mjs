@@ -17,7 +17,9 @@ export function mascota({ size, alt = MASCOTA_ALT, cls = "", eager = false }) {
     ${eager ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async">`;
 }
 
-export function layout({ site, path, title, description, body, current = "", noindex = false }) {
+// `og` cambia la vista previa en redes (tipo, imagen, video); `head` agrega
+// etiquetas extra al <head>, como datos estructurados.
+export function layout({ site, path, title, description, body, current = "", noindex = false, og = {}, head = "" }) {
   const url = site.url + path;
   const fullTitle = path === "/" ? title : `${title} · Doll`;
   const nav = [
@@ -43,18 +45,22 @@ ${noindex ? '<meta name="robots" content="noindex">' : `<link rel="canonical" hr
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preload" href="/fonts/nunito-800.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/styles.css?v=${site.cssHash}">
-<meta property="og:type" content="website">
+<meta property="og:type" content="${esc(og.type ?? "website")}">
 <meta property="og:locale" content="es_MX">
 <meta property="og:site_name" content="Doll">
 <meta property="og:title" content="${esc(fullTitle)}">
 <meta property="og:description" content="${esc(description)}">
 <meta property="og:url" content="${esc(url)}">
-<meta property="og:image" content="${esc(site.url)}/og.png">
+${og.image ? `<meta property="og:image" content="${esc(og.image)}">
+<meta property="og:image:alt" content="${esc(og.imageAlt ?? fullTitle)}">` : `<meta property="og:image" content="${esc(site.url)}/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="${esc(MASCOTA_ALT)} junto al texto: Doll, prepárate para la UAM">
-<meta name="twitter:card" content="summary_large_image">
-</head>
+<meta property="og:image:alt" content="${esc(MASCOTA_ALT)} junto al texto: Doll, prepárate para la UAM">`}
+${og.video ? `<meta property="og:video" content="${esc(og.video)}">
+<meta property="og:video:secure_url" content="${esc(og.video)}">
+<meta property="og:video:type" content="video/mp4">
+` : ""}<meta name="twitter:card" content="summary_large_image">
+${head}</head>
 <body>
 <a class="saltar" href="#contenido">Saltar al contenido</a>
 <header class="cabecera">
@@ -83,7 +89,7 @@ ${body}
 const boton = (href, texto, cls = "") =>
   `<a class="boton ${cls}" href="${esc(href)}">${esc(texto)}</a>`;
 
-export function portada({ site, secciones }) {
+export function portada({ site, secciones, videos = [] }) {
   const pasos = [
     ["Diagnóstico", "Contestas un examen corto que mide cómo vas en cada sección del examen de ingreso."],
     ["Plan", "Con tus resultados, Doll arma un plan que empieza por los temas que más necesitas."],
@@ -127,7 +133,17 @@ export function portada({ site, secciones }) {
     </div>
   </div>
 </section>
-
+${videos.length ? `
+<section class="bloque" aria-labelledby="ultimos-videos">
+  <div class="contenedor">
+    <h2 id="ultimos-videos">Últimos videos</h2>
+    <ul class="rejilla">
+${videos.slice(0, 3).map((v) => `<li>${tarjetaVideo(v, { contexto: true })}</li>`).join("\n")}
+    </ul>
+    <div class="acciones">${boton("/biblioteca/", "Ver toda la biblioteca", "boton--secundario")}</div>
+  </div>
+</section>
+` : ""}
 <section class="bloque" aria-labelledby="como-funciona">
   <div class="contenedor">
     <h2 id="como-funciona">Cómo funciona</h2>
@@ -207,16 +223,119 @@ function tarjetaSubtema(st) {
   </div>
 </article>`;
   }
-  const meta = [formatoDuracion(v.duracion), formatoTamano(v.tamaño)].filter(Boolean).join(" · ");
-  return `<article class="tarjeta subtema" id="${esc(st.id)}">
-  <h3>${esc(v.titulo || st.nombre)}</h3>
-  <video class="video" controls preload="none" playsinline${v.poster ? ` poster="${esc(v.poster)}"` : ""} width="1280" height="720">
-    <source src="${esc(v.url)}" type="video/mp4">
-    <a href="${esc(v.url)}">Descargar el video</a>
-  </video>
+  return tarjetaVideo(v, { id: st.id });
+}
+
+// "2026-11-18" → "18 de noviembre de 2026".
+function formatoFecha(f) {
+  const d = new Date(`${String(f ?? "").slice(0, 10)}T12:00:00Z`);
+  if (Number.isNaN(d.getTime())) return "";
+  return d.toLocaleDateString("es-MX", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" });
+}
+
+// Duración ISO 8601 para datos estructurados: 312 → "PT5M12S".
+function duracionIso(seg) {
+  const s = Math.round(Number(seg) || 0);
+  if (!s) return undefined;
+  const h = Math.floor(s / 3600), m = Math.floor((s % 3600) / 60), r = s % 60;
+  return `PT${h ? `${h}H` : ""}${m ? `${m}M` : ""}${r || (!h && !m) ? `${r}S` : ""}`;
+}
+
+const duracionCorta = (seg) => formatoDuracion(seg).replace(" min", "");
+
+// Tarjeta que enlaza a la página de un video. Con `contexto`, muestra la sección y el tema.
+function tarjetaVideo(v, { id = "", contexto = false } = {}) {
+  const titulo = v.titulo || v.subtema.nombre;
+  const dur = duracionCorta(v.duracion);
+  return `<article class="tarjeta subtema subtema--video"${id ? ` id="${esc(id)}"` : ""}>
+  <div class="miniatura">
+    ${v.poster
+      ? `<img src="${esc(v.poster)}" alt="" width="1280" height="720" loading="lazy" decoding="async">`
+      : mascota({ size: 120, alt: "" })}
+    <span class="miniatura__play" aria-hidden="true"></span>
+    ${dur ? `<span class="miniatura__duracion"><span class="oculto">Duración: </span>${esc(dur)}</span>` : ""}
+  </div>
+  ${contexto ? `<p class="subtema__contexto">${esc(v.seccion.nombre)} · ${esc(v.tema.nombre)}</p>` : ""}
+  <h3><a class="subtema__enlace" href="${esc(v.ruta)}">${esc(titulo)}</a></h3>
   ${v.descripcion ? `<p>${esc(v.descripcion)}</p>` : ""}
-  ${meta ? `<p class="subtema__meta">${esc(meta)}</p>` : ""}
 </article>`;
+}
+
+// Datos estructurados schema.org/VideoObject para buscadores.
+function videoJsonLd(site, v) {
+  const datos = {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    name: v.titulo || v.subtema.nombre,
+    description: v.descripcion || `Video de ${v.subtema.nombre} para el examen de ingreso a la UAM.`,
+    thumbnailUrl: v.poster ? [v.poster] : [`${site.url}/og.png`],
+    uploadDate: v.fecha || undefined,
+    duration: duracionIso(v.duracion),
+    contentUrl: v.url,
+    url: site.url + v.ruta,
+    inLanguage: "es-MX",
+    isFamilyFriendly: true,
+    isAccessibleForFree: true,
+    learningResourceType: "Video lección",
+    educationalLevel: "Bachillerato",
+    about: `${v.seccion.nombre}: ${v.tema.nombre}, ${v.subtema.nombre}`,
+    publisher: { "@type": "Organization", name: "OGHub" },
+  };
+  // "<" escapado para que el JSON nunca cierre la etiqueta <script>.
+  return `<script type="application/ld+json">${JSON.stringify(datos).replaceAll("<", "\\u003c")}</script>\n`;
+}
+
+export function paginaVideo({ site, v }) {
+  const titulo = v.titulo || v.subtema.nombre;
+  const s = v.seccion;
+  const datos = [
+    ["Duración", formatoDuracion(v.duracion)],
+    ["Tamaño", formatoTamano(v.tamaño)],
+    ["Publicado", formatoFecha(v.fecha)],
+    ["Tema", v.tema.nombre],
+    ["Subtema", v.subtema.nombre],
+  ].filter(([, valor]) => valor);
+
+  const otros = s.temas
+    .flatMap((t) => t.subtemas)
+    .filter((st) => st.video && st.video !== v)
+    .slice(0, 3);
+
+  return layout({
+    site,
+    path: v.ruta,
+    current: "biblioteca",
+    title: `${titulo} · ${s.nombre}`,
+    description: v.descripcion || `Video de ${v.subtema.nombre} (${s.nombre}) para el examen de ingreso a la UAM, división CBI.`,
+    og: { type: "video.other", image: v.poster || undefined, imageAlt: `Portada del video: ${titulo}`, video: v.url },
+    head: videoJsonLd(site, v),
+    body: `
+<div class="contenedor bloque">
+  <nav aria-label="Ruta" class="migas"><a href="/biblioteca/">Biblioteca</a> <span aria-hidden="true">›</span> <a href="/biblioteca/${s.slug}/">${esc(s.nombre)}</a> <span aria-hidden="true">›</span> <span aria-current="page">${esc(v.subtema.nombre)}</span></nav>
+  <article class="reproductor">
+    <h1>${esc(titulo)}</h1>
+    <video class="video" controls preload="metadata" playsinline${v.poster ? ` poster="${esc(v.poster)}"` : ""} width="1280" height="720">
+      <source src="${esc(v.url)}" type="video/mp4">
+      <p>Tu navegador no puede reproducir este video. <a href="${esc(v.url)}">Descárgalo aquí</a>.</p>
+    </video>
+    ${v.descripcion ? `<p class="entrada reproductor__descripcion">${esc(v.descripcion)}</p>` : ""}
+    <dl class="datos">
+${datos.map(([k, valor]) => `      <div><dt>${k}</dt><dd>${esc(valor)}</dd></div>`).join("\n")}
+    </dl>
+    <div class="acciones">
+      <a class="boton boton--secundario" href="/biblioteca/${s.slug}/#${esc(v.subtema.id)}">Volver a ${esc(s.nombre)}</a>
+      <a class="boton boton--secundario" href="${esc(v.url)}" download>Descargar video</a>
+    </div>
+  </article>
+${otros.length ? `
+  <section class="otras" aria-labelledby="mas-videos">
+    <h2 id="mas-videos">Más videos de ${esc(s.nombre)}</h2>
+    <ul class="rejilla">
+${otros.map((st) => `<li>${tarjetaVideo(st.video)}</li>`).join("\n")}
+    </ul>
+  </section>` : ""}
+</div>`,
+  });
 }
 
 export function seccion({ site, s, secciones }) {
@@ -290,7 +409,8 @@ export function privacidad({ site }) {
 
   <h2>Este sitio</h2>
   <p>Este sitio no usa cookies, analíticas ni herramientas de rastreo, y no carga recursos de terceros:
-  la tipografía y las imágenes se sirven desde el propio sitio.</p>
+  la tipografía y las imágenes se sirven desde el propio sitio, y los videos y sus portadas, desde el
+  almacenamiento de Doll en Cloudflare R2.</p>
 </div>`,
   });
 }

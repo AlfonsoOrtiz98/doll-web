@@ -1,3 +1,18 @@
 {
-  "videos": []
+  "actualizado": "2026-11-18T11:09:16.930Z",
+  "videos": [
+    {
+      "id": "primera-ley-newton",
+      "subtemaId": "fis-dinamica-newton",
+      "titulo": "Primera ley de Newton: la inercia",
+      "descripcion": "Erro explica por qué tu cuerpo sigue hacia adelante cuando el camión frena: reposo, velocidad constante y fricción.",
+      "duracion": 43,
+      "tamaño": 3731703,
+      "sha256": "9c50024833a8b960850fbd055d057cb6d5061e72dd80d54b77b8c2f14d41633f",
+      "url": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/videos/primera-ley-newton/v3.mp4",
+      "poster": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/videos/primera-ley-newton/v3.jpg",
+      "version": 3,
+      "fecha": "2026-11-18"
+    }
+  ]
 }

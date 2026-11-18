@@ -15,9 +15,13 @@ La app vive en otro repo (AlfonsoOrtiz98/Doll); este repo es solo el sitio.
 ## Datos
 - assets/temario.json es copia del temario de la app. Si cambia en la app,
   se vuelve a copiar aquí; no se edita en este repo.
-- Los videos vivirán en Cloudflare R2 (se configura después). Su manifiesto
-  videos.json tiene: id, subtemaId, titulo, descripcion, duracion, tamaño,
-  sha256, url, poster, version, fecha.
+- Los videos viven en Cloudflare R2. Su manifiesto videos.json tiene: id,
+  subtemaId, titulo, descripcion, duracion, tamaño, sha256, url, poster,
+  version, fecha. La compilación lo descarga de VIDEOS_MANIFEST_URL
+  (config.mjs); si falla, usa data/videos.json y avisa en consola.
+- Después de publicar videos nuevos en R2 hay que volver a compilar el sitio:
+  reintentar el despliegue en Cloudflare o hacer un commit vacío
+  (git commit --allow-empty -m "Videos nuevos" && git push).
 
 ## Reglas
 - HTML, CSS y JS sin framework; compilación con un script de Node.

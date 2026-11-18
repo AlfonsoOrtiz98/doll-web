@@ -23,7 +23,7 @@ publicado: `/ruta/` sirve `ruta/index.html` y lo que no existe responde con `404
 
 ```
 assets/            fuentes originales: mascota (SVG) y temario.json (copia de la app)
-data/videos.json   manifiesto de videos (vacío por ahora)
+data/videos.json   respaldo local del manifiesto de videos de R2
 src/templates.mjs  plantillas de todas las páginas
 src/styles.css     estilos
 config.mjs         URL del sitio, enlace de la beta y URLs de los videos
@@ -34,8 +34,8 @@ wrangler.jsonc     configuración del Cloudflare Worker (recursos estáticos de 
 ```
 
 Páginas generadas: portada, `/biblioteca/`, una página por sección en
-`/biblioteca/<seccion>/` (cada subtema tiene un ancla `#<subtemaId>`), `/privacidad/`
-y `404.html`.
+`/biblioteca/<seccion>/` (cada subtema tiene un ancla `#<subtemaId>`), una página por
+video en `/biblioteca/<seccion>/<subtemaId>/`, `/privacidad/` y `404.html`.
 
 ## Actualizar el temario desde la app
 
@@ -75,13 +75,32 @@ Cada entrada de `data/videos.json` tiene esta forma:
 `duracion` en segundos y `tamaño` en bytes. Si un subtema tiene varias entradas, se
 usa la de `version` más alta. Los subtemas sin video muestran una tarjeta "Próximamente".
 
-Para conectar R2 basta con cambiar dos constantes en `config.mjs`:
+Constantes en `config.mjs`:
 
-- `VIDEOS_MANIFEST_URL`: ruta local o URL `https://` del `videos.json`. Se lee al compilar.
+- `VIDEOS_MANIFEST_URL`: el `videos.json` publicado en R2. Se descarga en cada compilación.
+- `VIDEOS_MANIFEST_FALLBACK`: `data/videos.json`, el respaldo que se usa si la descarga
+  falla. La compilación lo avisa en consola con `AVISO:`. Conviene copiarle de vez en
+  cuando el manifiesto de R2 para que el respaldo no se quede atrás.
 - `VIDEOS_BASE_URL`: base para los `url` y `poster` relativos del manifiesto.
 
-Como el manifiesto se lee al compilar, al subir un video nuevo hay que volver a
-publicar el sitio (un push a `main` o "Retry build" en el panel del Worker).
+Cada subtema con video tiene su propia página en `/biblioteca/<seccion>/<subtemaId>/`
+con el reproductor, la descripción y los datos del video, datos estructurados
+`VideoObject` y etiquetas `og:video`. Esas páginas entran al `sitemap.xml` con la
+extensión de video de Google. La portada muestra los 3 videos más recientes (por `fecha`).
+
+### Después de publicar videos nuevos, vuelve a compilar el sitio
+
+El manifiesto se lee **solo al compilar**: subir un video a R2 no cambia el sitio por sí
+solo. Después de publicar videos nuevos, haz una de estas dos cosas:
+
+- En Cloudflare, *Workers & Pages → doll-web → Deployments*, reintenta el último
+  despliegue ("Retry build").
+- O haz un commit vacío y súbelo a `main`:
+
+  ```sh
+  git commit --allow-empty -m "Videos nuevos"
+  git push
+  ```
 
 ## Publicar en Cloudflare (Worker con recursos estáticos)
 

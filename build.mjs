@@ -38,20 +38,34 @@ async function escribir(rel, contenido) {
 
 // --- Datos -----------------------------------------------------------------
 
-async function leerManifiesto() {
-  const fuente = config.VIDEOS_MANIFEST_URL;
+async function leerFuente(fuente) {
   let texto;
   if (/^https?:\/\//.test(fuente)) {
-    const r = await fetch(fuente);
-    if (!r.ok) throw new Error(`No se pudo leer el manifiesto ${fuente}: HTTP ${r.status}`);
+    const r = await fetch(fuente, { signal: AbortSignal.timeout(20_000), headers: { "Cache-Control": "no-cache" } });
+    if (!r.ok) throw new Error(`HTTP ${r.status}`);
     texto = await r.text();
   } else {
     texto = await readFile(path.resolve(RAIZ, fuente), "utf8");
   }
   const datos = JSON.parse(texto);
   const lista = Array.isArray(datos) ? datos : datos.videos;
-  if (!Array.isArray(lista)) throw new Error(`${fuente}: se esperaba { "videos": [...] }`);
+  if (!Array.isArray(lista)) throw new Error(`se esperaba { "videos": [...] }`);
   return lista;
+}
+
+// Descarga el manifiesto de R2; si falla, usa el respaldo local y lo avisa.
+async function leerManifiesto() {
+  const fuente = config.VIDEOS_MANIFEST_URL;
+  try {
+    const lista = await leerFuente(fuente);
+    console.log(`Manifiesto: ${fuente} (${lista.length} videos).`);
+    return lista;
+  } catch (e) {
+    const respaldo = config.VIDEOS_MANIFEST_FALLBACK;
+    if (!respaldo || respaldo === fuente) throw new Error(`No se pudo leer el manifiesto ${fuente}: ${e.message}`);
+    console.warn(`AVISO: no se pudo descargar el manifiesto ${fuente} (${e.message}). Se usa el respaldo ${respaldo}; los videos pueden estar desactualizados.`);
+    return leerFuente(respaldo);
+  }
 }
 
 // Une una URL del manifiesto con VIDEOS_BASE_URL si es relativa.
@@ -75,6 +89,7 @@ async function cargarSecciones() {
 
   const secciones = [];
   const usados = new Set();
+  const conVideo = [];
   for (const tema of temario.temas) {
     let s = secciones.find((x) => x.clave === tema.seccion);
     if (!s) {
@@ -83,24 +98,34 @@ async function cargarSecciones() {
       s = { clave: tema.seccion, nombre, slug: slugify(nombre), temas: [] };
       secciones.push(s);
     }
-    s.temas.push({
-      id: tema.id,
-      nombre: tema.nombre,
-      subtemas: tema.subtemas.map((st) => {
-        const v = porSubtema.get(st.id);
-        if (v) usados.add(st.id);
-        return {
-          id: st.id,
-          nombre: st.nombre,
-          video: v ? { ...v, url: resolverUrl(v.url), poster: resolverUrl(v.poster) } : null,
+    const t = { id: tema.id, nombre: tema.nombre, subtemas: [] };
+    for (const st of tema.subtemas) {
+      const v = porSubtema.get(st.id);
+      const sub = { id: st.id, nombre: st.nombre, video: null };
+      if (v) {
+        usados.add(st.id);
+        sub.video = {
+          ...v,
+          url: resolverUrl(v.url),
+          poster: resolverUrl(v.poster),
+          ruta: `/biblioteca/${s.slug}/${slugify(st.id)}/`,
+          seccion: s,
+          tema: t,
+          subtema: sub,
         };
-      }),
-    });
+        conVideo.push(sub.video);
+      }
+      t.subtemas.push(sub);
+    }
+    s.temas.push(t);
   }
   for (const id of porSubtema.keys()) {
     if (!usados.has(id)) aviso(`El manifiesto tiene un video para "${id}", que no está en el temario.`);
   }
-  return { secciones, totalVideos: usados.size };
+  // Más recientes primero: por fecha y, en empate, por versión.
+  conVideo.sort((a, b) =>
+    String(b.fecha ?? "").localeCompare(String(a.fecha ?? "")) || (Number(b.version) || 0) - (Number(a.version) || 0));
+  return { secciones, videos: conVideo };
 }
 
 // --- Imágenes y fuentes ----------------------------------------------------
@@ -203,24 +228,40 @@ async function fuentes() {
 
 // --- Páginas ---------------------------------------------------------------
 
-async function paginas(site, secciones) {
+// Entrada <video:video> del sitemap (extensión de video de Google).
+function sitemapVideo(v) {
+  const campos = [
+    ["video:thumbnail_loc", v.poster],
+    ["video:title", v.titulo || v.subtema.nombre],
+    ["video:description", v.descripcion || `Video de ${v.subtema.nombre}.`],
+    ["video:content_loc", v.url],
+    ["video:duration", Math.round(Number(v.duracion)) || ""],
+    ["video:publication_date", v.fecha],
+    ["video:family_friendly", "yes"],
+    ["video:requires_subscription", "no"],
+  ].filter(([, valor]) => valor !== "" && valor != null);
+  return `\n    <video:video>\n${campos.map(([k, valor]) => `      <${k}>${t.esc(valor)}</${k}>`).join("\n")}\n    </video:video>\n  `;
+}
+
+async function paginas(site, secciones, videos) {
   const rutas = [];
-  const pagina = async (ruta, html) => {
+  const pagina = async (ruta, html, video = null) => {
     const archivo = ruta.endsWith("/") ? `${ruta}index.html` : ruta;
     await escribir(archivo, html);
-    if (!ruta.endsWith(".html")) rutas.push(ruta);
+    if (!ruta.endsWith(".html")) rutas.push({ ruta, video });
   };
 
-  await pagina("/", t.portada({ site, secciones }));
+  await pagina("/", t.portada({ site, secciones, videos }));
   await pagina("/biblioteca/", t.biblioteca({ site, secciones }));
   for (const s of secciones) await pagina(`/biblioteca/${s.slug}/`, t.seccion({ site, s, secciones }));
+  for (const v of videos) await pagina(v.ruta, t.paginaVideo({ site, v }), v);
   await pagina("/privacidad/", t.privacidad({ site }));
   await pagina("/404.html", t.noEncontrada({ site }));
 
   const hoy = new Date().toISOString().slice(0, 10);
   await escribir("sitemap.xml", `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${rutas.map((r) => `  <url><loc>${t.esc(site.url + r)}</loc><lastmod>${hoy}</lastmod></url>`).join("\n")}
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+${rutas.map(({ ruta, video }) => `  <url><loc>${t.esc(site.url + ruta)}</loc><lastmod>${video?.fecha || hoy}</lastmod>${video ? sitemapVideo(video) : ""}</url>`).join("\n")}
 </urlset>
 `);
   await escribir("robots.txt", `User-agent: *\nAllow: /\n\nSitemap: ${site.url}/sitemap.xml\n`);
@@ -244,9 +285,9 @@ const site = {
   cssHash: createHash("sha256").update(css).digest("hex").slice(0, 10),
 };
 
-const { secciones, totalVideos } = await cargarSecciones();
+const { secciones, videos } = await cargarSecciones();
 await Promise.all([imagenes(), fuentes()]);
-const rutas = await paginas(site, secciones);
+const rutas = await paginas(site, secciones, videos);
 
 for (const a of avisos) console.warn(`aviso: ${a}`);
-console.log(`dist/ listo en ${Date.now() - inicio} ms: ${rutas.length} páginas, ${secciones.length} secciones, videos: ${totalVideos}.`);
+console.log(`dist/ listo en ${Date.now() - inicio} ms: ${rutas.length} páginas, ${secciones.length} secciones, videos: ${videos.length}.`);

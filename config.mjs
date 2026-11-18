@@ -7,9 +7,12 @@ export const SITE_URL = "https://doll-web.alfonso-ortizgon.workers.dev";
 // Enlace del botón "Únete a la beta".
 export const BETA_URL = "#";
 
-// Manifiesto de videos. Puede ser una ruta local (relativa a la raíz del
-// repo) o una URL https://, por ejemplo el videos.json publicado en R2.
-export const VIDEOS_MANIFEST_URL = "data/videos.json";
+// Manifiesto de videos publicado en R2. Se descarga en cada compilación, así
+// que después de publicar videos nuevos hay que volver a compilar el sitio.
+export const VIDEOS_MANIFEST_URL = "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/videos.json";
+
+// Respaldo local (relativo a la raíz del repo) si la descarga falla.
+export const VIDEOS_MANIFEST_FALLBACK = "data/videos.json";
 
 // URL base para los campos "url" y "poster" del manifiesto que sean
 // relativos. Vacía = se usan tal cual. Para R2, algo como

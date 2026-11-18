@@ -336,6 +336,86 @@ section.bloque + section.bloque { padding-top: 0; }
   margin-bottom: 12px;
 }
 
+/* Tarjeta de video: toda la tarjeta es clic gracias al ::after del enlace. */
+.subtema--video { position: relative; transition: transform 0.08s, box-shadow 0.08s; }
+.subtema--video:hover { transform: translate(-2px, -2px); box-shadow: var(--sombra-alta); }
+.subtema__enlace { text-decoration: none; }
+.subtema__enlace::after { content: ""; position: absolute; inset: 0; border-radius: var(--radio); }
+.subtema--video:focus-within { outline: 3px solid var(--tinta); outline-offset: 3px; box-shadow: 0 0 0 6px var(--amarillo); }
+.subtema__enlace:focus-visible { outline: none; box-shadow: none; }
+.subtema__contexto { margin: 0 0 4px; font-size: 0.9rem; font-weight: 800; color: var(--tinta-suave); }
+
+.miniatura {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  margin-bottom: 14px;
+  background: var(--tinta);
+  border: var(--borde);
+  border-radius: 10px;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+}
+.miniatura img { width: 100%; height: 100%; object-fit: cover; }
+.miniatura__play {
+  position: absolute;
+  width: 56px;
+  height: 56px;
+  background: var(--naranja);
+  border: var(--borde);
+  border-radius: 50%;
+  box-shadow: var(--sombra);
+}
+.miniatura__play::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-35%, -50%);
+  border-style: solid;
+  border-width: 10px 0 10px 16px;
+  border-color: transparent transparent transparent var(--tinta);
+}
+.miniatura__duracion {
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+  padding: 0 8px;
+  background: var(--amarillo);
+  border: 2px solid var(--tinta);
+  border-radius: 8px;
+  font-weight: 800;
+  font-size: 0.9rem;
+}
+.oculto {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* Página de video */
+.reproductor { max-width: 860px; }
+.reproductor h1 { font-size: clamp(1.6rem, 4vw + 0.6rem, 2.6rem); }
+.reproductor .video { margin-bottom: 20px; box-shadow: var(--sombra); }
+.reproductor__descripcion { max-width: 60ch; }
+.datos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 20px 0 0;
+}
+.datos div {
+  padding: 6px 14px;
+  background: var(--blanco);
+  border: var(--borde);
+  border-radius: var(--radio);
+}
+.datos dt { font-size: 0.8rem; font-weight: 800; color: var(--tinta-suave); }
+.datos dd { margin: 0; font-weight: 800; }
+
 .otras { margin-top: 56px; padding-top: 28px; border-top: var(--borde); }
 
 /* Textos largos */
