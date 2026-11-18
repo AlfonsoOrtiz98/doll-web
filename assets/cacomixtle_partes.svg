@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+<g id="cola">
+<path d="M300 408 C392 436 462 372 438 286 C424 236 438 196 452 160" fill="none" stroke="#2B2233" stroke-width="72" stroke-linecap="round"/>
+<path d="M300 408 C392 436 462 372 438 286 C424 236 438 196 452 160" fill="none" stroke="#FFF6E6" stroke-width="60" stroke-linecap="round"/>
+<path d="M300 408 C392 436 462 372 438 286 C424 236 438 196 452 160" fill="none" stroke="#2B2233" stroke-width="60" stroke-dasharray="22 30" stroke-dashoffset="-40" style="stroke-linecap:butt"/>
+<path d="M447 176 C449 170 450 165 452 160" fill="none" stroke="#2B2233" stroke-width="60" stroke-linecap="round"/>
+</g>
+<g stroke-linejoin="round" stroke-linecap="round">
+<g id="pies">
+<ellipse cx="222" cy="452" rx="34" ry="18" fill="#8A6240" stroke="#2B2233" stroke-width="6"/>
+<ellipse cx="292" cy="452" rx="34" ry="18" fill="#8A6240" stroke="#2B2233" stroke-width="6"/>
+</g>
+<g id="bata">
+<path d="M196 296 Q256 276 316 296 L340 436 Q256 458 172 436 Z" fill="#FFFFFF" stroke="#2B2233" stroke-width="6"/>
+<path d="M300 300 L322 432 Q296 440 270 444 Z" fill="#DDE9EE"/>
+</g>
+<g id="cuello">
+<path d="M226 292 L256 344 L286 292 Z" fill="#29ADB5" stroke="#2B2233" stroke-width="6"/>
+<path d="M214 292 L256 352 L236 372 L204 316 Z" fill="#FFFFFF" stroke="#2B2233" stroke-width="6"/>
+<path d="M298 292 L256 352 L276 372 L308 316 Z" fill="#FFFFFF" stroke="#2B2233" stroke-width="6"/>
+<path d="M256 352 L256 448" stroke="#2B2233" stroke-width="5" fill="none"/>
+<circle cx="268" cy="388" r="5" fill="#2B2233"/><circle cx="268" cy="418" r="5" fill="#2B2233"/>
+</g>
+<g id="bolsillo">
+<rect x="196" y="384" width="34" height="30" rx="4" fill="#FFFFFF" stroke="#2B2233" stroke-width="5"/>
+<rect x="206" y="362" width="9" height="30" fill="#FFA300" stroke="#2B2233" stroke-width="4"/>
+<path d="M206 362 L210.5 351 L215 362 Z" fill="#FFF1DA" stroke="#2B2233" stroke-width="4"/>
+</g>
+<g id="brazo-saludo">
+<path d="M200 306 Q146 322 114 282" fill="none" stroke="#2B2233" stroke-width="40"/>
+<path d="M200 306 Q146 322 114 282" fill="none" stroke="#FFFFFF" stroke-width="28"/>
+<circle cx="106" cy="268" r="19" fill="#B98B5E" stroke="#2B2233" stroke-width="6"/>
+</g>
+<g id="brazo-reposo">
+<path d="M316 304 Q352 330 348 384" fill="none" stroke="#2B2233" stroke-width="40"/>
+<path d="M316 304 Q352 330 348 384" fill="none" stroke="#FFFFFF" stroke-width="28"/>
+<circle cx="348" cy="398" r="17" fill="#B98B5E" stroke="#2B2233" stroke-width="6"/>
+</g>
+<g id="cabeza-completa">
+<g id="orejas">
+<ellipse cx="166" cy="96" rx="46" ry="58" transform="rotate(-18 166 96)" fill="#B98B5E" stroke="#2B2233" stroke-width="6"/>
+<ellipse cx="170" cy="102" rx="26" ry="38" transform="rotate(-18 170 102)" fill="#F4A7A0"/>
+<ellipse cx="346" cy="96" rx="46" ry="58" transform="rotate(18 346 96)" fill="#B98B5E" stroke="#2B2233" stroke-width="6"/>
+<ellipse cx="342" cy="102" rx="26" ry="38" transform="rotate(18 342 102)" fill="#F4A7A0"/>
+</g>
+<g id="cabeza">
+<path d="M256 84 C336 84 392 132 392 190 C392 238 330 304 256 304 C182 304 120 238 120 190 C120 132 176 84 256 84 Z" fill="#B98B5E" stroke="#2B2233" stroke-width="6"/>
+<path d="M256 90 C282 110 282 150 256 176 C230 150 230 110 256 90 Z" fill="#8A6240"/>
+</g>
+<g id="antifaz">
+<ellipse cx="204" cy="188" rx="50" ry="46" fill="#FFF1DA"/>
+<ellipse cx="308" cy="188" rx="50" ry="46" fill="#FFF1DA"/>
+<ellipse cx="256" cy="250" rx="54" ry="46" fill="#FFF1DA"/>
+</g>
+<g id="ojos">
+<ellipse cx="208" cy="190" rx="24" ry="28" fill="#2B2233"/>
+<ellipse cx="304" cy="190" rx="24" ry="28" fill="#2B2233"/>
+<circle cx="216" cy="180" r="8" fill="#fff"/><circle cx="312" cy="180" r="8" fill="#fff"/>
+<circle cx="201" cy="200" r="4" fill="#fff"/><circle cx="297" cy="200" r="4" fill="#fff"/>
+</g>
+<g id="boca">
+<path d="M242 226 Q256 220 270 226 Q268 242 256 244 Q244 242 242 226 Z" fill="#2B2233"/>
+<path d="M256 244 L256 256 M256 256 Q242 270 230 260 M256 256 Q270 270 282 260" fill="none" stroke="#2B2233" stroke-width="5"/>
+<ellipse cx="172" cy="236" rx="14" ry="9" fill="#F4A7A0" opacity=".8"/>
+<ellipse cx="340" cy="236" rx="14" ry="9" fill="#F4A7A0" opacity=".8"/>
+</g>
+</g>
+</g></svg>

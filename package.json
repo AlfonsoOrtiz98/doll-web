@@ -1,0 +1,18 @@
+{
+  "name": "doll-web",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Sitio web de Doll: promoción y biblioteca de videos de las lecciones.",
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "preview": "node preview.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "@fontsource/nunito": "^5.3.0",
+    "sharp": "^0.35.5"
+  }
+}

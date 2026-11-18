@@ -1,0 +1,511 @@
+{
+  "temas": [
+    {
+      "id": "rv-comprension",
+      "seccion": "RAZONAMIENTO_VERBAL",
+      "nombre": "Comprensión lectora",
+      "subtemas": [
+        {
+          "id": "rv-comprension-analisis",
+          "nombre": "Análisis de textos"
+        },
+        {
+          "id": "rv-comprension-sintesis",
+          "nombre": "Síntesis de textos"
+        },
+        {
+          "id": "rv-comprension-informacion",
+          "nombre": "Identificación de información explícita o implícita contenida en el texto"
+        },
+        {
+          "id": "rv-comprension-argumento",
+          "nombre": "Identificación del argumento"
+        }
+      ]
+    },
+    {
+      "id": "rv-comunicacion",
+      "seccion": "RAZONAMIENTO_VERBAL",
+      "nombre": "Comunicación escrita",
+      "subtemas": [
+        {
+          "id": "rv-comunicacion-ortografia",
+          "nombre": "Uso de ortografía"
+        },
+        {
+          "id": "rv-comunicacion-sintaxis",
+          "nombre": "Sintaxis"
+        },
+        {
+          "id": "rv-comunicacion-puntuacion",
+          "nombre": "Puntuación"
+        },
+        {
+          "id": "rv-comunicacion-enunciados",
+          "nombre": "Análisis y producción de enunciados gramaticalmente correctos versus incorrectos"
+        },
+        {
+          "id": "rv-comunicacion-semantica",
+          "nombre": "Aplicación de la semántica"
+        },
+        {
+          "id": "rv-comunicacion-vocabulario",
+          "nombre": "Manejo del vocabulario"
+        }
+      ]
+    },
+    {
+      "id": "rm-numerico",
+      "seccion": "RAZONAMIENTO_MATEMATICO",
+      "nombre": "Razonamiento numérico",
+      "subtemas": [
+        {
+          "id": "rm-numerico-series",
+          "nombre": "Series numéricas"
+        },
+        {
+          "id": "rm-numerico-aritmetica",
+          "nombre": "Aritmética"
+        },
+        {
+          "id": "rm-numerico-algebra",
+          "nombre": "Álgebra"
+        },
+        {
+          "id": "rm-numerico-geometria",
+          "nombre": "Geometría"
+        }
+      ]
+    },
+    {
+      "id": "rm-simbolico",
+      "seccion": "RAZONAMIENTO_MATEMATICO",
+      "nombre": "Razonamiento simbólico-abstracto",
+      "subtemas": [
+        {
+          "id": "rm-simbolico-series",
+          "nombre": "Completar series con elementos abstractos"
+        },
+        {
+          "id": "rm-simbolico-graficos",
+          "nombre": "Interpretación de elementos gráficos"
+        }
+      ]
+    },
+    {
+      "id": "rm-logico",
+      "seccion": "RAZONAMIENTO_MATEMATICO",
+      "nombre": "Razonamiento lógico",
+      "subtemas": [
+        {
+          "id": "rm-logico-analogia",
+          "nombre": "Analogía"
+        },
+        {
+          "id": "rm-logico-series",
+          "nombre": "Series lógicas"
+        },
+        {
+          "id": "rm-logico-algoritmos",
+          "nombre": "Algoritmos"
+        },
+        {
+          "id": "rm-logico-induccion",
+          "nombre": "Inducción"
+        },
+        {
+          "id": "rm-logico-hipotesis",
+          "nombre": "Reconocimiento de hipótesis"
+        }
+      ]
+    },
+    {
+      "id": "mat-aritmetica",
+      "seccion": "MATEMATICA",
+      "nombre": "Aritmética",
+      "subtemas": [
+        {
+          "id": "mat-aritmetica-mcm-mcd",
+          "nombre": "Mínimo común múltiplo y máximo común divisor"
+        },
+        {
+          "id": "mat-aritmetica-fracciones",
+          "nombre": "Operaciones con fracciones numéricas"
+        }
+      ]
+    },
+    {
+      "id": "mat-algebra",
+      "seccion": "MATEMATICA",
+      "nombre": "Álgebra",
+      "subtemas": [
+        {
+          "id": "mat-algebra-valor-numerico",
+          "nombre": "Valor numérico de expresiones algebraicas"
+        },
+        {
+          "id": "mat-algebra-terminos-semejantes",
+          "nombre": "Términos semejantes"
+        },
+        {
+          "id": "mat-algebra-parentesis",
+          "nombre": "Uso de paréntesis"
+        },
+        {
+          "id": "mat-algebra-exponentes-radicales",
+          "nombre": "Leyes de los exponentes y radicales"
+        },
+        {
+          "id": "mat-algebra-polinomios",
+          "nombre": "Operaciones con polinomios"
+        },
+        {
+          "id": "mat-algebra-productos-notables",
+          "nombre": "Productos notables"
+        },
+        {
+          "id": "mat-algebra-factorizacion",
+          "nombre": "Factorización"
+        },
+        {
+          "id": "mat-algebra-fracciones-algebraicas",
+          "nombre": "Operaciones con fracciones algebraicas"
+        },
+        {
+          "id": "mat-algebra-racionalizacion",
+          "nombre": "Racionalización"
+        },
+        {
+          "id": "mat-algebra-ecuaciones-primer-grado",
+          "nombre": "Ecuaciones de primer grado con una incógnita"
+        },
+        {
+          "id": "mat-algebra-sistemas-lineales",
+          "nombre": "Sistemas de ecuaciones lineales"
+        },
+        {
+          "id": "mat-algebra-ecuaciones-segundo-grado",
+          "nombre": "Ecuaciones de segundo grado"
+        }
+      ]
+    },
+    {
+      "id": "mat-geometria",
+      "seccion": "MATEMATICA",
+      "nombre": "Geometría euclidiana",
+      "subtemas": [
+        {
+          "id": "mat-geometria-angulos-comp-sup",
+          "nombre": "Ángulos complementarios y suplementarios"
+        },
+        {
+          "id": "mat-geometria-paralelas-transversal",
+          "nombre": "Ángulos formados al cortar dos paralelas por una transversal"
+        },
+        {
+          "id": "mat-geometria-paralelogramos-triangulos",
+          "nombre": "Propiedades de paralelogramos y triángulos"
+        },
+        {
+          "id": "mat-geometria-congruencia-semejanza",
+          "nombre": "Triángulos congruentes y semejantes"
+        },
+        {
+          "id": "mat-geometria-pitagoras",
+          "nombre": "Teorema de Pitágoras"
+        },
+        {
+          "id": "mat-geometria-perimetro-area",
+          "nombre": "Perímetro y área de polígonos, y del círculo"
+        },
+        {
+          "id": "mat-geometria-area-volumen",
+          "nombre": "Área y volumen de paralelepípedos, cilindros, conos y esferas"
+        }
+      ]
+    },
+    {
+      "id": "mat-trigonometria",
+      "seccion": "MATEMATICA",
+      "nombre": "Trigonometría plana",
+      "subtemas": [
+        {
+          "id": "mat-trigonometria-grados-radianes",
+          "nombre": "Medida de ángulos en grados y radianes"
+        },
+        {
+          "id": "mat-trigonometria-angulos-notables",
+          "nombre": "Funciones trigonométricas de ángulos notables $\\pm 30^\\circ$, $\\pm 45^\\circ$, $\\pm 60^\\circ$, $\\pm 90^\\circ$"
+        },
+        {
+          "id": "mat-trigonometria-identidades",
+          "nombre": "Identidades trigonométricas básicas"
+        },
+        {
+          "id": "mat-trigonometria-triangulos-rectangulos",
+          "nombre": "Resolución de triángulos rectángulos"
+        },
+        {
+          "id": "mat-trigonometria-adicion",
+          "nombre": "Funciones de la adición de ángulos"
+        },
+        {
+          "id": "mat-trigonometria-sustraccion",
+          "nombre": "Funciones de la sustracción de ángulos"
+        },
+        {
+          "id": "mat-trigonometria-ley-cosenos",
+          "nombre": "Ley de los cosenos"
+        },
+        {
+          "id": "mat-trigonometria-ley-senos",
+          "nombre": "Ley de los senos"
+        },
+        {
+          "id": "mat-trigonometria-triangulos-oblicuangulos",
+          "nombre": "Resolución de triángulos oblicuángulos"
+        }
+      ]
+    },
+    {
+      "id": "mat-analitica",
+      "seccion": "MATEMATICA",
+      "nombre": "Geometría analítica",
+      "subtemas": [
+        {
+          "id": "mat-analitica-distancia",
+          "nombre": "Distancia entre dos puntos"
+        },
+        {
+          "id": "mat-analitica-division-segmento",
+          "nombre": "División de un segmento en una razón dada. Punto medio"
+        },
+        {
+          "id": "mat-analitica-pendiente",
+          "nombre": "Ángulo de inclinación y pendiente de una recta"
+        },
+        {
+          "id": "mat-analitica-paralelismo-perpendicularidad",
+          "nombre": "Condiciones de paralelismo y perpendicularidad"
+        },
+        {
+          "id": "mat-analitica-ecuacion-recta",
+          "nombre": "Ecuación de la recta en todas sus formas"
+        },
+        {
+          "id": "mat-analitica-interseccion-rectas",
+          "nombre": "Intersección de rectas"
+        },
+        {
+          "id": "mat-analitica-circunferencia",
+          "nombre": "Ecuación y elementos principales de la circunferencia"
+        },
+        {
+          "id": "mat-analitica-parabola",
+          "nombre": "Ecuación y elementos principales de la parábola"
+        },
+        {
+          "id": "mat-analitica-elipse",
+          "nombre": "Ecuación y elementos principales de la elipse"
+        },
+        {
+          "id": "mat-analitica-hiperbola",
+          "nombre": "Ecuación y elementos principales de la hipérbola"
+        }
+      ]
+    },
+    {
+      "id": "mat-calculo",
+      "seccion": "MATEMATICA",
+      "nombre": "Cálculo diferencial e integral",
+      "subtemas": [
+        {
+          "id": "mat-calculo-derivadas",
+          "nombre": "Derivadas de sumas, productos, cocientes y potencias de funciones"
+        },
+        {
+          "id": "mat-calculo-integrales",
+          "nombre": "Integrales inmediatas"
+        }
+      ]
+    },
+    {
+      "id": "fis-dimensional",
+      "seccion": "FISICA",
+      "nombre": "Análisis dimensional",
+      "subtemas": [
+        {
+          "id": "fis-dimensional-si",
+          "nombre": "Sistema internacional de unidades (SI)"
+        },
+        {
+          "id": "fis-dimensional-magnitudes",
+          "nombre": "Magnitudes físicas. Escalares y vectoriales. Fundamentales y derivadas"
+        },
+        {
+          "id": "fis-dimensional-notacion-cientifica",
+          "nombre": "Notación científica"
+        },
+        {
+          "id": "fis-dimensional-conversion",
+          "nombre": "Conversión de unidades"
+        }
+      ]
+    },
+    {
+      "id": "fis-cinematica",
+      "seccion": "FISICA",
+      "nombre": "Cinemática",
+      "subtemas": [
+        {
+          "id": "fis-cinematica-conceptos",
+          "nombre": "Conceptos de desplazamiento, velocidad y aceleración"
+        },
+        {
+          "id": "fis-cinematica-rectilineo",
+          "nombre": "Movimiento rectilíneo uniforme y acelerado"
+        },
+        {
+          "id": "fis-cinematica-bidimensional",
+          "nombre": "Movimiento bidimensional: circular y tiro parabólico"
+        }
+      ]
+    },
+    {
+      "id": "fis-dinamica",
+      "seccion": "FISICA",
+      "nombre": "Dinámica",
+      "subtemas": [
+        {
+          "id": "fis-dinamica-conceptos",
+          "nombre": "Conceptos de inercia, torca o momento de una fuerza, energía cinética, energía potencial, trabajo y potencia"
+        },
+        {
+          "id": "fis-dinamica-newton",
+          "nombre": "Leyes de Newton"
+        }
+      ]
+    },
+    {
+      "id": "fis-estatica",
+      "seccion": "FISICA",
+      "nombre": "Estática",
+      "subtemas": [
+        {
+          "id": "fis-estatica-cuerpo-libre",
+          "nombre": "Diagrama de cuerpo libre"
+        },
+        {
+          "id": "fis-estatica-equilibrio",
+          "nombre": "Equilibrio y centro de gravedad"
+        }
+      ]
+    },
+    {
+      "id": "fis-hidrostatica",
+      "seccion": "FISICA",
+      "nombre": "Hidrostática",
+      "subtemas": [
+        {
+          "id": "fis-hidrostatica-pascal",
+          "nombre": "Principio de Pascal"
+        },
+        {
+          "id": "fis-hidrostatica-densidad",
+          "nombre": "Densidad"
+        }
+      ]
+    },
+    {
+      "id": "fis-electrostatica",
+      "seccion": "FISICA",
+      "nombre": "Electrostática",
+      "subtemas": [
+        {
+          "id": "fis-electrostatica-carga",
+          "nombre": "Carga eléctrica"
+        },
+        {
+          "id": "fis-electrostatica-coulomb",
+          "nombre": "Ley de Coulomb"
+        }
+      ]
+    },
+    {
+      "id": "qui-materia",
+      "seccion": "QUIMICA",
+      "nombre": "Materia",
+      "subtemas": [
+        {
+          "id": "qui-materia-sustancias-mezclas",
+          "nombre": "Sustancias puras y mezclas"
+        },
+        {
+          "id": "qui-materia-estados",
+          "nombre": "Estados de agregación"
+        }
+      ]
+    },
+    {
+      "id": "qui-atomo",
+      "seccion": "QUIMICA",
+      "nombre": "Estructura del átomo",
+      "subtemas": [
+        {
+          "id": "qui-atomo-particulas",
+          "nombre": "Partículas subatómicas fundamentales"
+        },
+        {
+          "id": "qui-atomo-numero-atomico",
+          "nombre": "Número atómico, número de masa e isótopos"
+        },
+        {
+          "id": "qui-atomo-moleculas-iones",
+          "nombre": "Moléculas e iones"
+        },
+        {
+          "id": "qui-atomo-mol",
+          "nombre": "Masa molar y cantidad de sustancia (mol)"
+        }
+      ]
+    },
+    {
+      "id": "qui-nomenclatura",
+      "seccion": "QUIMICA",
+      "nombre": "Nomenclatura",
+      "subtemas": [
+        {
+          "id": "qui-nomenclatura-ionicos",
+          "nombre": "Compuestos iónicos"
+        },
+        {
+          "id": "qui-nomenclatura-moleculares",
+          "nombre": "Compuestos moleculares"
+        },
+        {
+          "id": "qui-nomenclatura-acidos-bases",
+          "nombre": "Ácidos y bases"
+        }
+      ]
+    },
+    {
+      "id": "qui-reacciones",
+      "seccion": "QUIMICA",
+      "nombre": "Reacciones químicas",
+      "subtemas": [
+        {
+          "id": "qui-reacciones-acido-base",
+          "nombre": "Ácido - base"
+        },
+        {
+          "id": "qui-reacciones-oxido-reduccion",
+          "nombre": "Óxido - reducción"
+        },
+        {
+          "id": "qui-reacciones-combustion",
+          "nombre": "Combustión"
+        }
+      ]
+    }
+  ]
+}

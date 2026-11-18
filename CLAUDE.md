@@ -1,0 +1,25 @@
+## Proyecto
+Sitio web de Doll, app Android tipo Duolingo para preparar el examen de
+ingreso a la UAM (división CBI), de OGHub. El sitio es la página de
+promoción y la biblioteca pública de videos de las lecciones.
+La app vive en otro repo (AlfonsoOrtiz98/Doll); este repo es solo el sitio.
+
+## Identidad
+- Mascota: cacomixtle vectorial con bata de laboratorio (assets/).
+- Colores: tinta #2B2233, papel #FFF1E8, turquesa #29ADB5, naranja #FFA300,
+  amarillo #FFEC27, acierto #00A86B, error #E5484D.
+- Texto sobre turquesa, naranja o amarillo siempre en tinta.
+- Tipografía: Nunito (ExtraBold en títulos y botones, regular en cuerpo).
+- Bordes de tinta de 3 px, esquinas de 16 px, sombra dura sin difuminar.
+
+## Datos
+- assets/temario.json es copia del temario de la app. Si cambia en la app,
+  se vuelve a copiar aquí; no se edita en este repo.
+- Los videos vivirán en Cloudflare R2 (se configura después). Su manifiesto
+  videos.json tiene: id, subtemaId, titulo, descripcion, duracion, tamaño,
+  sha256, url, poster, version, fecha.
+
+## Reglas
+- HTML, CSS y JS sin framework; compilación con un script de Node.
+- Primero teléfono. Sin cookies, sin analíticas, sin recursos de terceros.
+- Publicación: Cloudflare Pages desde la rama main.
