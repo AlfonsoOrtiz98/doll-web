@@ -16,8 +16,8 @@ npm run build      # genera el sitio en dist/
 npm run preview    # sirve dist/ en http://localhost:4321
 ```
 
-`npm run preview -- --port 8080` cambia el puerto. El servidor local imita a Cloudflare
-Pages: `/ruta/` sirve `ruta/index.html` y lo que no existe responde con `404.html`.
+`npm run preview -- --port 8080` cambia el puerto. El servidor local imita al Worker
+publicado: `/ruta/` sirve `ruta/index.html` y lo que no existe responde con `404.html`.
 
 ## Estructura
 
@@ -30,6 +30,7 @@ config.mjs         URL del sitio, enlace de la beta y URLs de los videos
 build.mjs          compilación: páginas, imágenes WebP, favicon, imagen Open Graph,
                    fuentes, sitemap.xml, robots.txt y _headers
 preview.mjs        servidor local sin dependencias
+wrangler.jsonc     configuración del Cloudflare Worker (recursos estáticos de dist/)
 ```
 
 Páginas generadas: portada, `/biblioteca/`, una página por sección en
@@ -45,7 +46,7 @@ y `404.html`.
 2. Ejecuta `npm run build` y revisa los avisos: la compilación avisa si aparece una
    sección sin nombre legible (se agrega en `NOMBRES_SECCION` de `build.mjs`) o si
    algún video del manifiesto apunta a un subtema que ya no existe.
-3. Haz commit y push a `main`; Cloudflare Pages publica solo.
+3. Haz commit y push a `main`; Cloudflare compila y publica el Worker solo.
 
 ## Videos
 
@@ -80,23 +81,32 @@ Para conectar R2 basta con cambiar dos constantes en `config.mjs`:
 - `VIDEOS_BASE_URL`: base para los `url` y `poster` relativos del manifiesto.
 
 Como el manifiesto se lee al compilar, al subir un video nuevo hay que volver a
-publicar el sitio (por ejemplo, con un Deploy Hook de Cloudflare Pages).
+publicar el sitio (un push a `main` o "Retry build" en el panel del Worker).
 
-## Publicar en Cloudflare Pages
+## Publicar en Cloudflare (Worker con recursos estáticos)
 
-Proyecto conectado al repositorio de GitHub, rama de producción `main`:
+El sitio se publica como **Cloudflare Worker con recursos estáticos** (Workers Static
+Assets), no como Cloudflare Pages. No hay código de servidor: el Worker solo sirve `dist/`.
+URL: https://doll-web.alfonso-ortizgon.workers.dev
+
+`wrangler.jsonc` define el Worker `doll-web` y cómo sirve los archivos:
+`/ruta/` entrega `ruta/index.html`, `/ruta` redirige a `/ruta/` y lo que no existe
+responde 404 con `dist/404.html`. El archivo `dist/_headers` (caché de fuentes e imágenes
+y cabeceras de seguridad) también se aplica.
+
+Configuración en *Workers & Pages → doll-web → Settings → Build*, conectado al
+repositorio de GitHub:
 
 | Opción | Valor |
 | --- | --- |
-| Framework preset | None |
+| Rama de producción | `main` |
 | Build command | `npm run build` |
-| Build output directory | `dist` |
-| Root directory | *(vacío)* |
-| Variable de entorno | `NODE_VERSION` = `26.13.1` |
+| Deploy command | `npx wrangler deploy` |
+| Root directory | `/` |
+| Variable de compilación | `NODE_VERSION` = `26.13.1` |
 
 `.node-version` ya fija la misma versión de Node, así que la variable es una garantía extra.
-Cloudflare Pages lee el archivo `dist/_headers` (caché de fuentes e imágenes y cabeceras
-de seguridad) y sirve `dist/404.html` para las rutas que no existen.
+Para publicar a mano desde tu equipo: `npm run build` y luego `npx wrangler deploy`.
 
-Cuando el sitio tenga su dominio definitivo, actualiza `SITE_URL` en `config.mjs`:
-de ahí salen las URL absolutas de `sitemap.xml`, las canónicas y Open Graph.
+Si el sitio cambia de dominio, actualiza `SITE_URL` en `config.mjs`: de ahí salen las
+URL absolutas de las canónicas, `og:url`, `og:image`, `sitemap.xml` y `robots.txt`.

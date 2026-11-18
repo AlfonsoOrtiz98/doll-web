@@ -1,8 +1,8 @@
 // Configuración del sitio. Todo lo que cambia entre entornos vive aquí.
 
-// URL pública del sitio, sin diagonal final. Se usa en sitemap.xml y en las
-// etiquetas Open Graph, que necesitan direcciones absolutas.
-export const SITE_URL = "https://doll-web.pages.dev";
+// URL base del sitio, sin diagonal final. Única fuente de las direcciones
+// absolutas: canonical, og:url, og:image, sitemap.xml y robots.txt.
+export const SITE_URL = "https://doll-web.alfonso-ortizgon.workers.dev";
 
 // Enlace del botón "Únete a la beta".
 export const BETA_URL = "#";

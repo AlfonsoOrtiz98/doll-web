@@ -250,8 +250,11 @@ section.bloque + section.bloque { padding-top: 0; }
   display: grid;
   gap: 20px;
 }
-.paso { position: relative; padding-top: 38px; }
-.paso__num {
+/* El número lo pone la lista; aquí solo se dibuja como círculo. */
+.pasos { counter-reset: paso; }
+.paso { position: relative; padding-top: 38px; counter-increment: paso; }
+.paso::before {
+  content: counter(paso);
   position: absolute;
   top: -18px;
   left: 18px;
@@ -265,8 +268,8 @@ section.bloque + section.bloque { padding-top: 0; }
   font-weight: 800;
   font-size: 1.25rem;
 }
-.pasos .paso:nth-child(2) .paso__num { background: var(--turquesa); }
-.pasos .paso:nth-child(3) .paso__num { background: var(--amarillo); }
+.paso:nth-child(2)::before { background: var(--turquesa); }
+.paso:nth-child(3)::before { background: var(--amarillo); }
 .pasos { margin-top: 36px; }
 
 .llamado {

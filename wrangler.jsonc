@@ -1,0 +1,12 @@
+// Cloudflare Worker con recursos estáticos: sirve dist/ sin código de servidor.
+{
+  "name": "doll-web",
+  "compatibility_date": "2026-11-18",
+  "assets": {
+    "directory": "./dist",
+    // /ruta/ sirve ruta/index.html; /ruta redirige a /ruta/.
+    "html_handling": "auto-trailing-slash",
+    // Lo que no existe responde 404 con dist/404.html.
+    "not_found_handling": "404-page"
+  }
+}

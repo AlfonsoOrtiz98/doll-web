@@ -22,4 +22,8 @@ La app vive en otro repo (AlfonsoOrtiz98/Doll); este repo es solo el sitio.
 ## Reglas
 - HTML, CSS y JS sin framework; compilación con un script de Node.
 - Primero teléfono. Sin cookies, sin analíticas, sin recursos de terceros.
-- Publicación: Cloudflare Pages desde la rama main.
+- Publicación: Cloudflare Worker con recursos estáticos (Workers Static
+  Assets), no Cloudflare Pages. Se despliega desde la rama main; la
+  configuración está en wrangler.jsonc y sirve dist/.
+- URL del sitio: https://doll-web.alfonso-ortizgon.workers.dev (constante
+  SITE_URL en config.mjs).

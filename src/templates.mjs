@@ -133,8 +133,7 @@ export function portada({ site, secciones }) {
     <h2 id="como-funciona">Cómo funciona</h2>
     <ol class="pasos">
       ${pasos
-        .map(([t, d], i) => `<li class="tarjeta paso"><span class="paso__num" aria-hidden="true">${i + 1}</span>
-        <h3>${t}</h3><p>${d}</p></li>`)
+        .map(([t, d]) => `<li class="tarjeta paso"><h3>${t}</h3><p>${d}</p></li>`)
         .join("\n      ")}
     </ol>
   </div>

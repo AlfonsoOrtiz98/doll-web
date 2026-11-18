@@ -1,5 +1,5 @@
 // Servidor local para revisar dist/. Uso: npm run preview [-- --port 8080]
-// Imita a Cloudflare Pages: /ruta/ sirve /ruta/index.html y lo inexistente da 404.html.
+// Imita al Worker publicado: /ruta/ sirve /ruta/index.html y lo inexistente da 404.html.
 import { createServer } from "node:http";
 import { readFile, stat } from "node:fs/promises";
 import path from "node:path";
@@ -37,7 +37,7 @@ createServer(async (req, res) => {
   const pedido = path.normalize(path.join(DIST, decodeURIComponent(url.pathname)));
   if (!pedido.startsWith(DIST)) { res.writeHead(400).end(); return; }
 
-  // Una carpeta sin diagonal final redirige, como en Cloudflare Pages.
+  // Una carpeta sin diagonal final redirige, como en el Worker (auto-trailing-slash).
   const s = await stat(pedido).catch(() => null);
   if (s?.isDirectory() && !url.pathname.endsWith("/")) {
     res.writeHead(308, { Location: url.pathname + "/" + url.search }).end();

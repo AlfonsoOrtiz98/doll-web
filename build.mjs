@@ -235,7 +235,7 @@ await mkdir(DIST, { recursive: true });
 
 const css = await readFile(desde("src/styles.css"), "utf8");
 await escribir("styles.css", css);
-// Cabeceras de Cloudflare Pages: caché larga para recursos que no cambian de nombre.
+// Cabeceras (_headers, que también lee el Worker con recursos estáticos): caché larga para recursos que no cambian de nombre.
 await escribir("_headers", `/fonts/*\n  Cache-Control: public, max-age=31536000, immutable\n/img/*\n  Cache-Control: public, max-age=604800\n/*\n  X-Content-Type-Options: nosniff\n  Referrer-Policy: strict-origin-when-cross-origin\n`);
 
 const site = {
