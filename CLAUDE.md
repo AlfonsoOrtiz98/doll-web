@@ -1,7 +1,7 @@
 ## Proyecto
 Sitio web de Doll, app Android tipo Duolingo para preparar el examen de
 ingreso a la UAM (división CBI), de OGHub. El sitio es la página de
-promoción y la biblioteca pública de videos de las lecciones.
+promoción y la biblioteca pública de videos e infografías de las lecciones.
 La app vive en otro repo (AlfonsoOrtiz98/Doll); este repo es solo el sitio.
 
 ## Identidad
@@ -15,13 +15,31 @@ La app vive en otro repo (AlfonsoOrtiz98/Doll); este repo es solo el sitio.
 ## Datos
 - assets/temario.json es copia del temario de la app. Si cambia en la app,
   se vuelve a copiar aquí; no se edita en este repo.
-- Los videos viven en Cloudflare R2. Su manifiesto videos.json tiene: id,
-  subtemaId, titulo, descripcion, duracion, tamaño, sha256, url, poster,
-  version, fecha. La compilación lo descarga de VIDEOS_MANIFEST_URL
-  (config.mjs); si falla, usa data/videos.json y avisa en consola.
-- Después de publicar videos nuevos en R2 hay que volver a compilar el sitio:
-  reintentar el despliegue en Cloudflare o hacer un commit vacío
-  (git commit --allow-empty -m "Videos nuevos" && git push).
+- Los videos y las infografías viven en Cloudflare R2 (R2_URL en config.mjs).
+  La compilación descarga sus manifiestos de VIDEOS_MANIFEST_URL e
+  INFOGRAFIAS_MANIFEST_URL; si alguno falla, usa su copia en data/
+  (videos.json, infografias.json) y avisa en consola. Conviene volver a
+  copiar los manifiestos a data/ de vez en cuando para que el respaldo no
+  se quede atrás.
+- videos.json → { "videos": [...] }, cada uno con: id, subtemaId, titulo,
+  descripcion, duracion, tamaño, sha256, url, poster, version, fecha.
+- infografias.json → { "infografias": [...] }, cada una con: id, subtemaId,
+  titulo, alt (texto alternativo), version, fecha, svg (url, opcional) y
+  formatos { vertical (1080×1350), historia (1080×1920), cuadrado
+  (1080×1080) }. Cada formato tiene: ancho, alto, webp (url), png (url),
+  tamaño y sha256 (del WebP), png_tamaño y png_sha256 (del PNG) y svg (url,
+  opcional). El vertical es obligatorio.
+- Si un subtema tiene varias versiones, gana la de version más alta. Cada
+  subtema con video o infografía tiene su página en
+  /biblioteca/<sección>/<subtema>/: video, infografía vertical en WebP y
+  botones para descargar los PNG. La imagen Open Graph de esa página es el
+  PNG cuadrado.
+- Los PNG para descargar se copian al compilar a dist/descargas/ (verificando
+  png_sha256), porque R2 no envía CORS y el atributo download solo funciona
+  en el mismo origen. Si la copia falla, el botón enlaza al PNG de R2.
+- Después de publicar videos o infografías nuevos en R2 hay que volver a
+  compilar el sitio: reintentar el despliegue en Cloudflare o hacer un commit
+  vacío (git commit --allow-empty -m "Videos nuevos" && git push).
 
 ## Reglas
 - HTML, CSS y JS sin framework; compilación con un script de Node.

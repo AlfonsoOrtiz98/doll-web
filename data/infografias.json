@@ -1,0 +1,709 @@
+{
+  "actualizado": "2026-11-19T18:46:06.664Z",
+  "infografias": [
+    {
+      "id": "rv-comprension-analisis",
+      "subtemaId": "rv-comprension-analisis",
+      "titulo": "Análisis de textos",
+      "alt": "Infografía de Erro Faraday sobre análisis de textos: analizar es dividir el texto en partes. Cuatro pasos: tema (de qué habla), idea principal (qué dice del tema), ideas secundarias (ejemplos y explicaciones) e intención (informar, convencer o entretener). Error común: confundir el tema con la idea principal, que siempre afirma algo sobre el tema.",
+      "version": 1,
+      "fecha": "2026-11-19",
+      "formatos": {
+        "vertical": {
+          "ancho": 1080,
+          "alto": 1350,
+          "webp": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/rv-comprension-analisis/v1/vertical.webp",
+          "png": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/rv-comprension-analisis/v1/vertical.png",
+          "svg": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/rv-comprension-analisis/v1/vertical.svg",
+          "tamaño": 120824,
+          "sha256": "7ba4efe390b91bcca6dc08eaf04adfd926f99b9fe5dd74c92493a591719bf06b",
+          "png_tamaño": 157982,
+          "png_sha256": "76aa73e53bda0eaf302c693ff61185fae15db6afa04d73d6cce4a21d976ac1d6"
+        },
+        "historia": {
+          "ancho": 1080,
+          "alto": 1920,
+          "webp": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/rv-comprension-analisis/v1/historia.webp",
+          "png": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/rv-comprension-analisis/v1/historia.png",
+          "svg": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/rv-comprension-analisis/v1/historia.svg",
+          "tamaño": 140878,
+          "sha256": "e3c2ef85dbedc20920d0c6e7432743e5c106c7076695aded43a4657a759f0c02",
+          "png_tamaño": 180502,
+          "png_sha256": "427b629b1c1f486d4977e2fb255fcaa6df45d4163657c1a3c4e7c508e86d235b"
+        },
+        "cuadrado": {
+          "ancho": 1080,
+          "alto": 1080,
+          "webp": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/rv-comprension-analisis/v1/cuadrado.webp",
+          "png": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/rv-comprension-analisis/v1/cuadrado.png",
+          "svg": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/rv-comprension-analisis/v1/cuadrado.svg",
+          "tamaño": 96056,
+          "sha256": "1d9a16c5ddf8b4a14cedcd5373c93de7003cf25e37636561fcd0bfe15cf60062",
+          "png_tamaño": 127367,
+          "png_sha256": "0d37097ddab6083e302ee72a77674b1b028c6830568af95a28f1ce9f50f84e57"
+        }
+      },
+      "svg": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/rv-comprension-analisis/v1/vertical.svg"
+    },
+    {
+      "id": "rm-numerico-series",
+      "subtemaId": "rm-numerico-series",
+      "titulo": "Series numéricas",
+      "alt": "Infografía de Erro Faraday sobre series numéricas: para encontrar la regla, calcula las diferencias entre números seguidos. En 3, 5, 9, 15, 23 las diferencias son +2, +4, +6, +8, así que sigue 33. En 2, 6, 18, 54 cada número es el anterior por 3, así que sigue 162. Error común: responder 25 por quedarse con la primera diferencia.",
+      "version": 1,
+      "fecha": "2026-11-19",
+      "formatos": {
+        "vertical": {
+          "ancho": 1080,
+          "alto": 1350,
+          "webp": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/rm-numerico-series/v1/vertical.webp",
+          "png": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/rm-numerico-series/v1/vertical.png",
+          "svg": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/rm-numerico-series/v1/vertical.svg",
+          "tamaño": 121768,
+          "sha256": "141924ed484159bc193fb1b2e908fa01e544670b4953a8cf2dbdd642c686f623",
+          "png_tamaño": 155890,
+          "png_sha256": "41965eb457163f2f057f4d242d130236f252da5ed564cce10bb1c706d19eaa98"
+        },
+        "historia": {
+          "ancho": 1080,
+          "alto": 1920,
+          "webp": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/rm-numerico-series/v1/historia.webp",
+          "png": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/rm-numerico-series/v1/historia.png",
+          "svg": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/rm-numerico-series/v1/historia.svg",
+          "tamaño": 133464,
+          "sha256": "3f783308d3bae3bef4d1ccf9289de6b4cb7d2ebad5c408ba81fdb50d2bf6b5f2",
+          "png_tamaño": 172832,
+          "png_sha256": "1c67a3739104cc54b294169137fcf62caaea3d7d65398d07b436daef5e951d18"
+        },
+        "cuadrado": {
+          "ancho": 1080,
+          "alto": 1080,
+          "webp": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/rm-numerico-series/v1/cuadrado.webp",
+          "png": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/rm-numerico-series/v1/cuadrado.png",
+          "svg": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/rm-numerico-series/v1/cuadrado.svg",
+          "tamaño": 99830,
+          "sha256": "f6fc79ee805dfe7776758b764e38fc37ba0940b103f63c59baeda387ffbbea41",
+          "png_tamaño": 127685,
+          "png_sha256": "294b41eb2f85d3eed9124059eef3b50f4c91c6a063323fcfacd6bed966c6dbb2"
+        }
+      },
+      "svg": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/rm-numerico-series/v1/vertical.svg"
+    },
+    {
+      "id": "mat-aritmetica-mcm-mcd",
+      "subtemaId": "mat-aritmetica-mcm-mcd",
+      "titulo": "MCD y mcm",
+      "alt": "Infografía de Erro Faraday sobre MCD y mcm de 12 y 18 con factores primos: 12 es 2 al cuadrado por 3 y 18 es 2 por 3 al cuadrado. El MCD usa los primos comunes con menor exponente: 2 por 3 = 6. El mcm usa todos con mayor exponente: 2 al cuadrado por 3 al cuadrado = 36. Error común: decir que el MCD es 36; el MCD nunca supera al número menor. Comprobación: 6 por 36 = 216 = 12 por 18.",
+      "version": 1,
+      "fecha": "2026-11-19",
+      "formatos": {
+        "vertical": {
+          "ancho": 1080,
+          "alto": 1350,
+          "webp": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/mat-aritmetica-mcm-mcd/v1/vertical.webp",
+          "png": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/mat-aritmetica-mcm-mcd/v1/vertical.png",
+          "svg": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/mat-aritmetica-mcm-mcd/v1/vertical.svg",
+          "tamaño": 115698,
+          "sha256": "d4e324fec219fe287ec92ce8ce46be3956509d5e8aa1557a58a57470f0da3e23",
+          "png_tamaño": 146321,
+          "png_sha256": "dac4d6b8f957c324424001b20f77371223f07b0a169586539680ef1a7dd457f0"
+        },
+        "historia": {
+          "ancho": 1080,
+          "alto": 1920,
+          "webp": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/mat-aritmetica-mcm-mcd/v1/historia.webp",
+          "png": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/mat-aritmetica-mcm-mcd/v1/historia.png",
+          "svg": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/mat-aritmetica-mcm-mcd/v1/historia.svg",
+          "tamaño": 128630,
+          "sha256": "ffba65f5cf7b4b1d7053cd8f85b1a116366d3d46583e941970ac106b91d5dfe6",
+          "png_tamaño": 165531,
+          "png_sha256": "783fa0b9adb666c490cfd436f5b4036f6f9496ffea79e4efe81e164669662370"
+        },
+        "cuadrado": {
+          "ancho": 1080,
+          "alto": 1080,
+          "webp": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/mat-aritmetica-mcm-mcd/v1/cuadrado.webp",
+          "png": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/mat-aritmetica-mcm-mcd/v1/cuadrado.png",
+          "svg": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/mat-aritmetica-mcm-mcd/v1/cuadrado.svg",
+          "tamaño": 95368,
+          "sha256": "146a22e796560eba43ad0182724dacd34dc5d2539457f272da49641c7de26dc1",
+          "png_tamaño": 120719,
+          "png_sha256": "3cd086262302dd56ec1688e9472cbe92e1fc02229586fac3ce05738e6a008f40"
+        }
+      },
+      "svg": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/mat-aritmetica-mcm-mcd/v1/vertical.svg"
+    },
+    {
+      "id": "fis-dimensional-si",
+      "subtemaId": "fis-dimensional-si",
+      "titulo": "Sistema Internacional",
+      "alt": "Infografía de Erro Faraday sobre el Sistema Internacional de Unidades y sus 7 unidades base: longitud, metro (m); masa, kilogramo (kg); tiempo, segundo (s); corriente eléctrica, ampere (A); temperatura, kelvin (K); cantidad de sustancia, mol (mol); intensidad luminosa, candela (cd). Error común: escribir 5 kgs. en lugar de 5 kg, porque los símbolos no llevan punto ni plural. La unidad base de masa es el kilogramo.",
+      "version": 1,
+      "fecha": "2026-11-19",
+      "formatos": {
+        "vertical": {
+          "ancho": 1080,
+          "alto": 1350,
+          "webp": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/fis-dimensional-si/v1/vertical.webp",
+          "png": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/fis-dimensional-si/v1/vertical.png",
+          "svg": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/fis-dimensional-si/v1/vertical.svg",
+          "tamaño": 110982,
+          "sha256": "2504f3dce630727bb1b20216f32dcff0de90f1863744a0b3dd4be4bd65820a6a",
+          "png_tamaño": 148649,
+          "png_sha256": "51bc6259e99ca888d1dcc3f953d6d9f3debb97319a2d2c9d22d7f3d32e6f20fe"
+        },
+        "historia": {
+          "ancho": 1080,
+          "alto": 1920,
+          "webp": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/fis-dimensional-si/v1/historia.webp",
+          "png": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/fis-dimensional-si/v1/historia.png",
+          "svg": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/fis-dimensional-si/v1/historia.svg",
+          "tamaño": 127148,
+          "sha256": "608807ef3349580e011536e8207e442c94bf369e3fee091ca80e526d72d56bc1",
+          "png_tamaño": 168032,
+          "png_sha256": "4c5c8c5e6dbab2e70bcd1105db2173aaecc011bb1b335535a745ba59d74f1c5d"
+        },
+        "cuadrado": {
+          "ancho": 1080,
+          "alto": 1080,
+          "webp": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/fis-dimensional-si/v1/cuadrado.webp",
+          "png": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/fis-dimensional-si/v1/cuadrado.png",
+          "svg": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/fis-dimensional-si/v1/cuadrado.svg",
+          "tamaño": 87356,
+          "sha256": "f32c3ba805bc4db84f738fd77d3b6e311843ed11907388fb9e8d0c8e765405be",
+          "png_tamaño": 121308,
+          "png_sha256": "0baa96cafec9026e10ce6b8f029b2fc3c2b59d3ff0188b079e826c336efb8754"
+        }
+      },
+      "svg": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/fis-dimensional-si/v1/vertical.svg"
+    },
+    {
+      "id": "qui-materia-sustancias-mezclas",
+      "subtemaId": "qui-materia-sustancias-mezclas",
+      "titulo": "Sustancias puras y mezclas",
+      "alt": "Infografía de Erro Faraday sobre sustancias puras y mezclas: una sustancia pura tiene composición fija y una mezcla, variable. Ejemplos: el agua destilada es sustancia pura (compuesto), el agua de mar es mezcla homogénea y el granito es mezcla heterogénea. Error común: creer que todo lo que se ve uniforme es sustancia pura; el agua de mar se ve uniforme y es mezcla.",
+      "version": 1,
+      "fecha": "2026-11-19",
+      "formatos": {
+        "vertical": {
+          "ancho": 1080,
+          "alto": 1350,
+          "webp": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/qui-materia-sustancias-mezclas/v1/vertical.webp",
+          "png": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/qui-materia-sustancias-mezclas/v1/vertical.png",
+          "svg": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/qui-materia-sustancias-mezclas/v1/vertical.svg",
+          "tamaño": 126536,
+          "sha256": "7814288f51db55ab995d4ae971705196c50a0e0238e6438cf2a8a612cbdf44d0",
+          "png_tamaño": 158158,
+          "png_sha256": "558fed75c2c4ed3ef7cf14f59c0c7c4fbeb4306fe61917940764be2c3ae312b2"
+        },
+        "historia": {
+          "ancho": 1080,
+          "alto": 1920,
+          "webp": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/qui-materia-sustancias-mezclas/v1/historia.webp",
+          "png": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/qui-materia-sustancias-mezclas/v1/historia.png",
+          "svg": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/qui-materia-sustancias-mezclas/v1/historia.svg",
+          "tamaño": 143700,
+          "sha256": "801bcd275bcd7db2e5ddde78f5a225df1c1887b6d4db4325c19f00a4134429d9",
+          "png_tamaño": 177936,
+          "png_sha256": "9244719640dd12c3e03f3a204ff1838e655acbe7d3d8ccd9db49146b1414ba1f"
+        },
+        "cuadrado": {
+          "ancho": 1080,
+          "alto": 1080,
+          "webp": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/qui-materia-sustancias-mezclas/v1/cuadrado.webp",
+          "png": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/qui-materia-sustancias-mezclas/v1/cuadrado.png",
+          "svg": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/qui-materia-sustancias-mezclas/v1/cuadrado.svg",
+          "tamaño": 105380,
+          "sha256": "676b150b91f1fff94abadbf516e9344badb9ac2584861445ff36d80a4777b6f8",
+          "png_tamaño": 131229,
+          "png_sha256": "e5272024bce3b152f05c2a64675462107a9ce69761b9bd73f4a7c232244c0d73"
+        }
+      },
+      "svg": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/qui-materia-sustancias-mezclas/v1/vertical.svg"
+    },
+    {
+      "id": "rv-comprension-sintesis",
+      "subtemaId": "rv-comprension-sintesis",
+      "titulo": "Síntesis de textos",
+      "alt": "Infografía de Erro Faraday sobre síntesis de textos: sintetizar es decir las ideas principales con tus palabras. Una buena síntesis es más corta que el original, no agrega opiniones tuyas y conserva lo importante. Error común: agregar una opinión, como «el ajolote es el animal más bonito», algo que el texto nunca dijo. En el examen, descarta las opciones que dicen más que el texto.",
+      "version": 1,
+      "fecha": "2026-11-19",
+      "formatos": {
+        "vertical": {
+          "ancho": 1080,
+          "alto": 1350,
+          "webp": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/rv-comprension-sintesis/v1/vertical.webp",
+          "png": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/rv-comprension-sintesis/v1/vertical.png",
+          "svg": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/rv-comprension-sintesis/v1/vertical.svg",
+          "tamaño": 106762,
+          "sha256": "6b0ccd5ae1806557697edbfac5b90113b56bcfc1f37998f530dadc363ed5ef71",
+          "png_tamaño": 141640,
+          "png_sha256": "582f8bf71e5b9d8ef10fd2019ec6296a6ef3e2ed8feb2e30d3382c73bc539628"
+        },
+        "historia": {
+          "ancho": 1080,
+          "alto": 1920,
+          "webp": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/rv-comprension-sintesis/v1/historia.webp",
+          "png": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/rv-comprension-sintesis/v1/historia.png",
+          "svg": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/rv-comprension-sintesis/v1/historia.svg",
+          "tamaño": 127366,
+          "sha256": "6f55919bf2caed6f4763dcbd74e2120050691962b5539a252d38af1f73f894b5",
+          "png_tamaño": 163766,
+          "png_sha256": "5f07e574ea5a858e09af4e1787bb329e934e3775abbbb2b00d2385af7eaa45d1"
+        },
+        "cuadrado": {
+          "ancho": 1080,
+          "alto": 1080,
+          "webp": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/rv-comprension-sintesis/v1/cuadrado.webp",
+          "png": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/rv-comprension-sintesis/v1/cuadrado.png",
+          "svg": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/rv-comprension-sintesis/v1/cuadrado.svg",
+          "tamaño": 86078,
+          "sha256": "302643c8fbd28d265688fb8deeb3b4abf30222da01777b4716259205d68256fa",
+          "png_tamaño": 114366,
+          "png_sha256": "910b69942fb766acd5791e05f0c1cffb58d15731e4756f83ae3b30d9ba4b81a3"
+        }
+      },
+      "svg": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/rv-comprension-sintesis/v1/vertical.svg"
+    },
+    {
+      "id": "rm-numerico-aritmetica",
+      "subtemaId": "rm-numerico-aritmetica",
+      "titulo": "Orden de las operaciones",
+      "alt": "Infografía de Erro Faraday sobre el orden de las operaciones: primero paréntesis, luego potencias, después multiplicaciones y divisiones, y al final sumas y restas, de izquierda a derecha. Ejemplo: 8 + 4 × 3 − 6 ÷ 2 = 8 + 12 − 3 = 17. Con paréntesis, (8 + 4) × 3 = 36. Error común: resolver de izquierda a derecha sin respetar el orden, lo que da 15.",
+      "version": 1,
+      "fecha": "2026-11-19",
+      "formatos": {
+        "vertical": {
+          "ancho": 1080,
+          "alto": 1350,
+          "webp": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/rm-numerico-aritmetica/v1/vertical.webp",
+          "png": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/rm-numerico-aritmetica/v1/vertical.png",
+          "svg": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/rm-numerico-aritmetica/v1/vertical.svg",
+          "tamaño": 111760,
+          "sha256": "f1a20d0618babb4e1442397cc764f35cfc54859ed05e558732e662f4e6968c21",
+          "png_tamaño": 146884,
+          "png_sha256": "abfb3eee24187f52574e1058f64b31162c76ee6e9f4871c46db458f568c0ca4b"
+        },
+        "historia": {
+          "ancho": 1080,
+          "alto": 1920,
+          "webp": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/rm-numerico-aritmetica/v1/historia.webp",
+          "png": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/rm-numerico-aritmetica/v1/historia.png",
+          "svg": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/rm-numerico-aritmetica/v1/historia.svg",
+          "tamaño": 122988,
+          "sha256": "a79453ea027695fd5d257d14b07d3335b6b63ef7c75a19fd49bdc8ad3f240a39",
+          "png_tamaño": 162499,
+          "png_sha256": "3321e18c0f3bcd28c9b07b45cff3f989567182c3c4327f2d3b2f00c33de48bcc"
+        },
+        "cuadrado": {
+          "ancho": 1080,
+          "alto": 1080,
+          "webp": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/rm-numerico-aritmetica/v1/cuadrado.webp",
+          "png": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/rm-numerico-aritmetica/v1/cuadrado.png",
+          "svg": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/rm-numerico-aritmetica/v1/cuadrado.svg",
+          "tamaño": 91646,
+          "sha256": "86f58212c420a71266aad3f0f2973ab5795db0601efaf313bdb8c56ea9cd0548",
+          "png_tamaño": 121463,
+          "png_sha256": "1a02deb1ca00c8910aa102ea5477210e8cb0b7bef0077b3634c6638351309ffd"
+        }
+      },
+      "svg": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/rm-numerico-aritmetica/v1/vertical.svg"
+    },
+    {
+      "id": "mat-aritmetica-fracciones",
+      "subtemaId": "mat-aritmetica-fracciones",
+      "titulo": "Fracciones",
+      "alt": "Infografía de Erro Faraday sobre operaciones con fracciones. Para sumar se necesita el mismo denominador: 2/3 + 1/4 = 8/12 + 3/12 = 11/12. Para multiplicar, arriba por arriba y abajo por abajo: 2/3 × 3/4 = 6/12 = 1/2. Para dividir, multiplica por la segunda volteada: 2/3 ÷ 1/4 = 8/3. Error común: sumar los denominadores y obtener 3/7. Estimar ayuda: 0.67 + 0.25 es casi 1, igual que 11/12.",
+      "version": 1,
+      "fecha": "2026-11-19",
+      "formatos": {
+        "vertical": {
+          "ancho": 1080,
+          "alto": 1350,
+          "webp": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/mat-aritmetica-fracciones/v1/vertical.webp",
+          "png": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/mat-aritmetica-fracciones/v1/vertical.png",
+          "svg": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/mat-aritmetica-fracciones/v1/vertical.svg",
+          "tamaño": 120272,
+          "sha256": "01ebe98c470965c670d4791b87433ab232c092ed86f40d879826f01b22943ece",
+          "png_tamaño": 148937,
+          "png_sha256": "e3033f5f2e9d3a3159948a91f24cae5687ddf28f7bf556e819f067b6fa2dc066"
+        },
+        "historia": {
+          "ancho": 1080,
+          "alto": 1920,
+          "webp": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/mat-aritmetica-fracciones/v1/historia.webp",
+          "png": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/mat-aritmetica-fracciones/v1/historia.png",
+          "svg": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/mat-aritmetica-fracciones/v1/historia.svg",
+          "tamaño": 131336,
+          "sha256": "5ae3f9ead328bf6e3a0ce99c8b08c340bf9322901a12fe5fe88ab73e6797a316",
+          "png_tamaño": 166916,
+          "png_sha256": "926f2daa8e4b920c4809e29620175b32e7147a92c19c7a5f7ea7d3a8e03bd5a4"
+        },
+        "cuadrado": {
+          "ancho": 1080,
+          "alto": 1080,
+          "webp": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/mat-aritmetica-fracciones/v1/cuadrado.webp",
+          "png": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/mat-aritmetica-fracciones/v1/cuadrado.png",
+          "svg": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/mat-aritmetica-fracciones/v1/cuadrado.svg",
+          "tamaño": 98930,
+          "sha256": "78b0c7861cf4fcc6f19c7d0bbd2112f081522800fbc9cf34db56e275ab125ad5",
+          "png_tamaño": 122950,
+          "png_sha256": "a0c2a897a59ec739a1d5e65b811cfb8df2183e786f54101a41baafe5be67bb0a"
+        }
+      },
+      "svg": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/mat-aritmetica-fracciones/v1/vertical.svg"
+    },
+    {
+      "id": "fis-dimensional-magnitudes",
+      "subtemaId": "fis-dimensional-magnitudes",
+      "titulo": "Magnitudes físicas",
+      "alt": "Infografía de Erro Faraday sobre magnitudes físicas: una magnitud es un número más una unidad y se clasifica como fundamental o derivada, y como escalar o vectorial. Ejemplos: la masa de 5 kg es fundamental y escalar; una velocidad de 60 km/h al norte es derivada y vectorial; un área de 40 m² es derivada y escalar. Error común: confundir distancia con desplazamiento; en una vuelta a una pista de 400 m la distancia es 400 m y el desplazamiento es 0.",
+      "version": 1,
+      "fecha": "2026-11-19",
+      "formatos": {
+        "vertical": {
+          "ancho": 1080,
+          "alto": 1350,
+          "webp": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/fis-dimensional-magnitudes/v1/vertical.webp",
+          "png": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/fis-dimensional-magnitudes/v1/vertical.png",
+          "svg": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/fis-dimensional-magnitudes/v1/vertical.svg",
+          "tamaño": 120168,
+          "sha256": "6bed1c6067b04ca106265f7096b480a6fbf5dc4e6861b8a9c189319c9ad68601",
+          "png_tamaño": 155459,
+          "png_sha256": "ca632b545039714eee4fa1527d823ffc0d4262b6833242858016d1724c460b33"
+        },
+        "historia": {
+          "ancho": 1080,
+          "alto": 1920,
+          "webp": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/fis-dimensional-magnitudes/v1/historia.webp",
+          "png": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/fis-dimensional-magnitudes/v1/historia.png",
+          "svg": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/fis-dimensional-magnitudes/v1/historia.svg",
+          "tamaño": 139988,
+          "sha256": "ef1dc1e75717ec07efa11894fcd8edffc8903f4d44cfd271bdd135c8deaf3059",
+          "png_tamaño": 176304,
+          "png_sha256": "424244585444c3d9e44af262b6d90c705edbcf83721a0072e6aa688f19fc208d"
+        },
+        "cuadrado": {
+          "ancho": 1080,
+          "alto": 1080,
+          "webp": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/fis-dimensional-magnitudes/v1/cuadrado.webp",
+          "png": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/fis-dimensional-magnitudes/v1/cuadrado.png",
+          "svg": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/fis-dimensional-magnitudes/v1/cuadrado.svg",
+          "tamaño": 97242,
+          "sha256": "88e1e2710d1236415cb5eef1d3380c97ddb4aed9a39e19378b91d6625689f6ac",
+          "png_tamaño": 125623,
+          "png_sha256": "8e7aacf0c640067adf6184e49ddcc1a8638e5f7798bc8051f77054cd3834fa90"
+        }
+      },
+      "svg": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/fis-dimensional-magnitudes/v1/vertical.svg"
+    },
+    {
+      "id": "qui-materia-estados",
+      "subtemaId": "qui-materia-estados",
+      "titulo": "Estados de agregación",
+      "alt": "Infografía de Erro Faraday sobre los estados de agregación: calentar o enfriar cambia el estado de la materia. El sólido tiene forma y volumen definidos; el líquido, volumen definido y la forma del recipiente; el gas no tiene forma ni volumen definidos. El hielo seco pasa directo de sólido a gas: sublimación. Error común: creer que al hervir el agua se vuelve aire; las burbujas son vapor de agua y el cambio es físico.",
+      "version": 1,
+      "fecha": "2026-11-19",
+      "formatos": {
+        "vertical": {
+          "ancho": 1080,
+          "alto": 1350,
+          "webp": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/qui-materia-estados/v1/vertical.webp",
+          "png": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/qui-materia-estados/v1/vertical.png",
+          "svg": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/qui-materia-estados/v1/vertical.svg",
+          "tamaño": 119014,
+          "sha256": "2a87935e702f6c55491c6c6536b020c6b9027fef2938ae7e2da12821d250aae2",
+          "png_tamaño": 154716,
+          "png_sha256": "32e1e4e15a420d5a52e7e4211f900c86fadfc6d564c722c736d25a4141648088"
+        },
+        "historia": {
+          "ancho": 1080,
+          "alto": 1920,
+          "webp": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/qui-materia-estados/v1/historia.webp",
+          "png": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/qui-materia-estados/v1/historia.png",
+          "svg": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/qui-materia-estados/v1/historia.svg",
+          "tamaño": 137226,
+          "sha256": "5c624d6187c0cbc54141016da65ff63f25a5246d4172140ecde0eb4004dc8433",
+          "png_tamaño": 175487,
+          "png_sha256": "e3b0f996544af028873a205fd6d653f7233e0e2816cdb0a93f6c95eb1790f769"
+        },
+        "cuadrado": {
+          "ancho": 1080,
+          "alto": 1080,
+          "webp": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/qui-materia-estados/v1/cuadrado.webp",
+          "png": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/qui-materia-estados/v1/cuadrado.png",
+          "svg": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/qui-materia-estados/v1/cuadrado.svg",
+          "tamaño": 96770,
+          "sha256": "76dad722aaf6833176ac8f02699c325615496605f28f9c5bc060ce1c3d098741",
+          "png_tamaño": 125893,
+          "png_sha256": "e7af111e95c3c396a24f1cf0bc4701acf9db7e04197e2104c9074cd0c4b9deef"
+        }
+      },
+      "svg": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/qui-materia-estados/v1/vertical.svg"
+    },
+    {
+      "id": "rv-comprension-informacion",
+      "subtemaId": "rv-comprension-informacion",
+      "titulo": "Explícita e implícita",
+      "alt": "Infografía de Erro Faraday sobre información explícita e implícita, con la oración «Mariana cerró el paraguas, se quitó las botas llenas de lodo y las dejó junto a la puerta». Explícita, porque está escrita: se quitó las botas con lodo. Implícita, porque se deduce: probablemente llovía; las pistas son el paraguas y el lodo. Error común: afirmar que Mariana estaba enojada, algo que ninguna pista apoya; deducir no es inventar.",
+      "version": 1,
+      "fecha": "2026-11-19",
+      "formatos": {
+        "vertical": {
+          "ancho": 1080,
+          "alto": 1350,
+          "webp": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/rv-comprension-informacion/v1/vertical.webp",
+          "png": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/rv-comprension-informacion/v1/vertical.png",
+          "svg": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/rv-comprension-informacion/v1/vertical.svg",
+          "tamaño": 120282,
+          "sha256": "f9ec9103d689c2dc340d3a9d789674ff06fa5597875a7dd80478709a5498ff03",
+          "png_tamaño": 152737,
+          "png_sha256": "90f9d0b25651d8a26c186bef6c17990a5c443766f6a80d5a392c2ad791c98ffa"
+        },
+        "historia": {
+          "ancho": 1080,
+          "alto": 1920,
+          "webp": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/rv-comprension-informacion/v1/historia.webp",
+          "png": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/rv-comprension-informacion/v1/historia.png",
+          "svg": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/rv-comprension-informacion/v1/historia.svg",
+          "tamaño": 141146,
+          "sha256": "c989af1bf2a56870f4e420f8bdea4c9c8b482d231d31ec9546738c859737f829",
+          "png_tamaño": 174972,
+          "png_sha256": "cb31f64610979f12c25e24daffe76cd35e2c2000c374aaac1c5c041a450039c8"
+        },
+        "cuadrado": {
+          "ancho": 1080,
+          "alto": 1080,
+          "webp": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/rv-comprension-informacion/v1/cuadrado.webp",
+          "png": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/rv-comprension-informacion/v1/cuadrado.png",
+          "svg": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/rv-comprension-informacion/v1/cuadrado.svg",
+          "tamaño": 94344,
+          "sha256": "f3114637670a40be7e832aefc2a9b8fa44268f3cd93ac3ec1eab1ce25d383927",
+          "png_tamaño": 123826,
+          "png_sha256": "f269b43a6274f3b17c44a8a898ee75970aab5a7cf1bb7be813a8dda78828cc27"
+        }
+      },
+      "svg": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/rv-comprension-informacion/v1/vertical.svg"
+    },
+    {
+      "id": "rm-numerico-algebra",
+      "subtemaId": "rm-numerico-algebra",
+      "titulo": "De palabras a ecuaciones",
+      "alt": "Infografía de Erro Faraday sobre cómo pasar de palabras a ecuaciones: dos números consecutivos que suman 37 se escriben x + (x + 1) = 37. Al resolver, 2x + 1 = 37 y x = 18, así que los números son 18 y 19; comprobación: 18 + 19 = 37. Error común: traducir «el doble de la suma de un número y 3» como 2x + 3, cuando lo correcto es 2(x + 3).",
+      "version": 1,
+      "fecha": "2026-11-19",
+      "formatos": {
+        "vertical": {
+          "ancho": 1080,
+          "alto": 1350,
+          "webp": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/rm-numerico-algebra/v1/vertical.webp",
+          "png": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/rm-numerico-algebra/v1/vertical.png",
+          "svg": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/rm-numerico-algebra/v1/vertical.svg",
+          "tamaño": 111922,
+          "sha256": "2834d6a897423ab8721a2ee31687b8c8b9d7257c0a50e46046d298ec88306fb4",
+          "png_tamaño": 146675,
+          "png_sha256": "c4b27115ceb4a7f7dbf866e73873132093813b89780bcf93ce10cd29347d59ba"
+        },
+        "historia": {
+          "ancho": 1080,
+          "alto": 1920,
+          "webp": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/rm-numerico-algebra/v1/historia.webp",
+          "png": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/rm-numerico-algebra/v1/historia.png",
+          "svg": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/rm-numerico-algebra/v1/historia.svg",
+          "tamaño": 124240,
+          "sha256": "001938621f2a12a9f73e3f9677f304aa8b7084dd0bd405702a41540a7cbcbf92",
+          "png_tamaño": 163467,
+          "png_sha256": "0b564e81fa4cf2f1f47e0c800fcfe307cc71d1ffcc8637c125863c62b8fd275b"
+        },
+        "cuadrado": {
+          "ancho": 1080,
+          "alto": 1080,
+          "webp": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/rm-numerico-algebra/v1/cuadrado.webp",
+          "png": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/rm-numerico-algebra/v1/cuadrado.png",
+          "svg": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/rm-numerico-algebra/v1/cuadrado.svg",
+          "tamaño": 91478,
+          "sha256": "6c69408c0199fc261ae3b2659ef840bec82a3c9143454386a05c5ab50b95b253",
+          "png_tamaño": 122961,
+          "png_sha256": "4b464e81c5bf9774c76829a3a5b4c26d24a3a7d5360255afdcdb0c2367774e01"
+        }
+      },
+      "svg": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/rm-numerico-algebra/v1/vertical.svg"
+    },
+    {
+      "id": "fis-dimensional-notacion-cientifica",
+      "subtemaId": "fis-dimensional-notacion-cientifica",
+      "titulo": "Notación científica",
+      "alt": "Infografía de Erro Faraday sobre notación científica: un número se escribe como a por 10 a la n, con a entre 1 y 10. Ejemplos: 300 000 000 es 3 por 10 a la 8 (el punto se mueve 8 lugares a la izquierda) y 0.00052 es 5.2 por 10 a la menos 4 (4 lugares a la derecha). Error común: 45 por 10 al cuadrado no está en notación científica porque 45 no está entre 1 y 10; lo correcto es 4.5 por 10 al cubo.",
+      "version": 1,
+      "fecha": "2026-11-19",
+      "formatos": {
+        "vertical": {
+          "ancho": 1080,
+          "alto": 1350,
+          "webp": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/fis-dimensional-notacion-cientifica/v1/vertical.webp",
+          "png": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/fis-dimensional-notacion-cientifica/v1/vertical.png",
+          "svg": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/fis-dimensional-notacion-cientifica/v1/vertical.svg",
+          "tamaño": 114450,
+          "sha256": "fe78582086b89d480b2c9bded4ccc37d431d6a6cf208b123517bb45bfa46b9f5",
+          "png_tamaño": 150054,
+          "png_sha256": "fc850e92f6304280192bfef3e13dd262c65e1956a438f29f87d2e4a1f504cd8d"
+        },
+        "historia": {
+          "ancho": 1080,
+          "alto": 1920,
+          "webp": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/fis-dimensional-notacion-cientifica/v1/historia.webp",
+          "png": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/fis-dimensional-notacion-cientifica/v1/historia.png",
+          "svg": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/fis-dimensional-notacion-cientifica/v1/historia.svg",
+          "tamaño": 125562,
+          "sha256": "e4a0e56a24f3efe98a3379b1afc428aff9f3410cc180b6d9a5f2a4015c7d50f1",
+          "png_tamaño": 165823,
+          "png_sha256": "efa957dcb4ec2fb4eff8c6e2b85ff01940ac060ff3f7cdf4aff1af1c4b136da3"
+        },
+        "cuadrado": {
+          "ancho": 1080,
+          "alto": 1080,
+          "webp": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/fis-dimensional-notacion-cientifica/v1/cuadrado.webp",
+          "png": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/fis-dimensional-notacion-cientifica/v1/cuadrado.png",
+          "svg": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/fis-dimensional-notacion-cientifica/v1/cuadrado.svg",
+          "tamaño": 92534,
+          "sha256": "a790f983c952642b815982d5a45d22f11deb5579e2cefc699233091705943416",
+          "png_tamaño": 123035,
+          "png_sha256": "dda0f15c85520175bf153d371f0a5f33cf44bdb76cfed6ba25d550599962e930"
+        }
+      },
+      "svg": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/fis-dimensional-notacion-cientifica/v1/vertical.svg"
+    },
+    {
+      "id": "rv-comprension-argumento",
+      "subtemaId": "rv-comprension-argumento",
+      "titulo": "Identificar el argumento",
+      "alt": "Infografía de Erro Faraday sobre cómo identificar el argumento de un texto: la tesis responde a qué defiende el autor y los argumentos, a por qué. Ejemplo: tesis, las escuelas deberían tener un huerto; argumentos, se aprende de dónde viene la comida y se practican ciencias con plantas reales. Error común: confundir un argumento con la tesis. Palabras pista: porque, ya que, por lo tanto.",
+      "version": 1,
+      "fecha": "2026-11-19",
+      "formatos": {
+        "vertical": {
+          "ancho": 1080,
+          "alto": 1350,
+          "webp": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/rv-comprension-argumento/v1/vertical.webp",
+          "png": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/rv-comprension-argumento/v1/vertical.png",
+          "svg": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/rv-comprension-argumento/v1/vertical.svg",
+          "tamaño": 120966,
+          "sha256": "6ffde91056bf593047de02c43db75ab23f0f257a4029ab3fdf8263fd07029d5c",
+          "png_tamaño": 153403,
+          "png_sha256": "6fe7d5c37d4e2674d2f97d843cc27f699d49646bcfa6aa96f568d2b1320359e2"
+        },
+        "historia": {
+          "ancho": 1080,
+          "alto": 1920,
+          "webp": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/rv-comprension-argumento/v1/historia.webp",
+          "png": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/rv-comprension-argumento/v1/historia.png",
+          "svg": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/rv-comprension-argumento/v1/historia.svg",
+          "tamaño": 138794,
+          "sha256": "d60b693b484c181cacf780880a8316ed33f3af54dc4a06a4a63bbbd083378554",
+          "png_tamaño": 170960,
+          "png_sha256": "7a84aab5b648029c1d783571422d67f0ee72adf79a72974f0840c30188b78dd6"
+        },
+        "cuadrado": {
+          "ancho": 1080,
+          "alto": 1080,
+          "webp": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/rv-comprension-argumento/v1/cuadrado.webp",
+          "png": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/rv-comprension-argumento/v1/cuadrado.png",
+          "svg": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/rv-comprension-argumento/v1/cuadrado.svg",
+          "tamaño": 99030,
+          "sha256": "d565880bf746e4505798a5adae5984be3fff593daaf08b122c7577a001bf9bee",
+          "png_tamaño": 126973,
+          "png_sha256": "58db0e06211c991fd183053bbc58bf0b751b195c8a4801a9b4f17e35c8982c3c"
+        }
+      },
+      "svg": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/rv-comprension-argumento/v1/vertical.svg"
+    },
+    {
+      "id": "rm-numerico-geometria",
+      "subtemaId": "rm-numerico-geometria",
+      "titulo": "Perímetro, área y ángulos",
+      "alt": "Infografía de Erro Faraday sobre perímetro, área y ángulos: los ángulos interiores de un triángulo suman 180°. Un rectángulo de 8 cm por 5 cm tiene perímetro de 26 cm y área de 40 cm². Un triángulo con ángulos de 50° y 65° tiene un tercer ángulo de 65°, así que es isósceles. Error común: creer que si el lado de un cuadrado se duplica, el área se duplica; en realidad se multiplica por 4 (3 × 3 = 9, pero 6 × 6 = 36). Cuidado con las unidades: cm no es cm².",
+      "version": 1,
+      "fecha": "2026-11-19",
+      "formatos": {
+        "vertical": {
+          "ancho": 1080,
+          "alto": 1350,
+          "webp": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/rm-numerico-geometria/v1/vertical.webp",
+          "png": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/rm-numerico-geometria/v1/vertical.png",
+          "svg": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/rm-numerico-geometria/v1/vertical.svg",
+          "tamaño": 120156,
+          "sha256": "014a3b85d993c06805ad1dcf7072bbd91577334dd70413dccf005ae1ae3009bf",
+          "png_tamaño": 153422,
+          "png_sha256": "675d76b964f7fa4f120098bdf5072ddac3c97b75b5506a043171d76c53b9de07"
+        },
+        "historia": {
+          "ancho": 1080,
+          "alto": 1920,
+          "webp": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/rm-numerico-geometria/v1/historia.webp",
+          "png": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/rm-numerico-geometria/v1/historia.png",
+          "svg": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/rm-numerico-geometria/v1/historia.svg",
+          "tamaño": 127538,
+          "sha256": "e434af027f5536439b79faa29dd7c95ed0aed568e208d95a7c522ac7cadd9f6b",
+          "png_tamaño": 168429,
+          "png_sha256": "03b5ac828ebcc0e3303388af128d7aafa6a63df7858638a2e330b32377326a07"
+        },
+        "cuadrado": {
+          "ancho": 1080,
+          "alto": 1080,
+          "webp": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/rm-numerico-geometria/v1/cuadrado.webp",
+          "png": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/rm-numerico-geometria/v1/cuadrado.png",
+          "svg": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/rm-numerico-geometria/v1/cuadrado.svg",
+          "tamaño": 100656,
+          "sha256": "76f7307610410b6e39b2c4646ddc53f50503a835f737cb1f7c526114deec0ab3",
+          "png_tamaño": 128695,
+          "png_sha256": "b41fb334c7a9a798ede0242e31c3a39b65379bff33c54da3afcf169f011ff06d"
+        }
+      },
+      "svg": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/rm-numerico-geometria/v1/vertical.svg"
+    },
+    {
+      "id": "fis-dimensional-conversion",
+      "subtemaId": "fis-dimensional-conversion",
+      "titulo": "Conversión de unidades",
+      "alt": "Infografía de Erro Faraday sobre conversión de unidades: se multiplica por factores que valen 1, como 1000 m entre 1 km. Ejemplo: 72 km/h son 72 × 1000 ÷ 3600 = 20 m/s, porque 1 h son 3600 s. Atajo: 72 ÷ 3.6 = 20 m/s, y para regresar se multiplica por 3.6. Error común: decir que 1 m² son 100 cm²; son 10 000 cm², porque si la unidad está al cuadrado el factor también.",
+      "version": 1,
+      "fecha": "2026-11-19",
+      "formatos": {
+        "vertical": {
+          "ancho": 1080,
+          "alto": 1350,
+          "webp": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/fis-dimensional-conversion/v1/vertical.webp",
+          "png": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/fis-dimensional-conversion/v1/vertical.png",
+          "svg": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/fis-dimensional-conversion/v1/vertical.svg",
+          "tamaño": 112632,
+          "sha256": "15f61bdd858d59fcb2ff381c2230e25a2302a64081cbbe8bf03063343743d422",
+          "png_tamaño": 143497,
+          "png_sha256": "3821c07ccb686a92ea06d449ade45803cab5b4e6955c1b8bf96a844212b26f40"
+        },
+        "historia": {
+          "ancho": 1080,
+          "alto": 1920,
+          "webp": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/fis-dimensional-conversion/v1/historia.webp",
+          "png": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/fis-dimensional-conversion/v1/historia.png",
+          "svg": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/fis-dimensional-conversion/v1/historia.svg",
+          "tamaño": 121984,
+          "sha256": "6fac5cab86f9c8859a427a74c7d93eb37a75256364021eecbb49b9ca477d6e71",
+          "png_tamaño": 160569,
+          "png_sha256": "e9b7b95aa963915b1a95b2523903aea8f4c3a2ae54486e4c32700486462734dc"
+        },
+        "cuadrado": {
+          "ancho": 1080,
+          "alto": 1080,
+          "webp": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/fis-dimensional-conversion/v1/cuadrado.webp",
+          "png": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/fis-dimensional-conversion/v1/cuadrado.png",
+          "svg": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/fis-dimensional-conversion/v1/cuadrado.svg",
+          "tamaño": 90650,
+          "sha256": "83c0812e9277d3ddc0042695f8820702cf1e393925aca727084aa742b37adf49",
+          "png_tamaño": 118168,
+          "png_sha256": "bdb9cffbfa6b47909d85c38d011e98ed544c7a291d5d04808ed620d02dde8264"
+        }
+      },
+      "svg": "https://pub-2e10da3c403b4d6182a36fa1154ab2e9.r2.dev/infografias/fis-dimensional-conversion/v1/vertical.svg"
+    }
+  ]
+}

@@ -38,7 +38,7 @@ async function escribir(rel, contenido) {
 
 // --- Datos -----------------------------------------------------------------
 
-async function leerFuente(fuente) {
+async function leerFuente(fuente, clave) {
   let texto;
   if (/^https?:\/\//.test(fuente)) {
     const r = await fetch(fuente, { signal: AbortSignal.timeout(20_000), headers: { "Cache-Control": "no-cache" } });
@@ -48,23 +48,23 @@ async function leerFuente(fuente) {
     texto = await readFile(path.resolve(RAIZ, fuente), "utf8");
   }
   const datos = JSON.parse(texto);
-  const lista = Array.isArray(datos) ? datos : datos.videos;
-  if (!Array.isArray(lista)) throw new Error(`se esperaba { "videos": [...] }`);
+  const lista = Array.isArray(datos) ? datos : datos[clave];
+  if (!Array.isArray(lista)) throw new Error(`se esperaba { "${clave}": [...] }`);
   return lista;
 }
 
-// Descarga el manifiesto de R2; si falla, usa el respaldo local y lo avisa.
-async function leerManifiesto() {
-  const fuente = config.VIDEOS_MANIFEST_URL;
+// Descarga un manifiesto de R2; si falla, usa el respaldo local y lo avisa.
+// `clave` es la lista dentro del JSON: "videos" o "infografias".
+async function leerManifiesto(clave, fuente, respaldo) {
+  const nombre = clave === "videos" ? "los videos" : "las infografías";
   try {
-    const lista = await leerFuente(fuente);
-    console.log(`Manifiesto: ${fuente} (${lista.length} videos).`);
+    const lista = await leerFuente(fuente, clave);
+    console.log(`Manifiesto: ${fuente} (${lista.length} ${nombre.split(" ")[1]}).`);
     return lista;
   } catch (e) {
-    const respaldo = config.VIDEOS_MANIFEST_FALLBACK;
     if (!respaldo || respaldo === fuente) throw new Error(`No se pudo leer el manifiesto ${fuente}: ${e.message}`);
-    console.warn(`AVISO: no se pudo descargar el manifiesto ${fuente} (${e.message}). Se usa el respaldo ${respaldo}; los videos pueden estar desactualizados.`);
-    return leerFuente(respaldo);
+    console.warn(`AVISO: no se pudo descargar el manifiesto ${fuente} (${e.message}). Se usa el respaldo ${respaldo}; ${nombre} pueden estar desactualizados.`);
+    return leerFuente(respaldo, clave);
   }
 }
 
@@ -75,21 +75,44 @@ function resolverUrl(u) {
   return new URL(u, config.VIDEOS_BASE_URL).href;
 }
 
+// Agrupa un manifiesto por subtema. Si hay varias versiones, gana la más reciente.
+function porSubtema(lista, nombre, valido) {
+  const mapa = new Map();
+  for (const x of lista) {
+    if (!x.subtemaId || !valido(x)) { aviso(`${nombre} ${x.id ?? "(sin id)"} incompleto (falta subtemaId o url); se ignora.`); continue; }
+    const previo = mapa.get(x.subtemaId);
+    if (!previo || (Number(x.version) || 0) > (Number(previo.version) || 0)) mapa.set(x.subtemaId, x);
+  }
+  return mapa;
+}
+
+// Infografía del manifiesto con sus URL resueltas. Solo se queda con los
+// formatos conocidos; el vertical es obligatorio (es el que se muestra).
+function normalizarInfografia(inf) {
+  const formatos = {};
+  for (const f of Object.keys(t.FORMATOS)) {
+    const x = inf.formatos?.[f];
+    if (!x?.webp && !x?.png) { if (f !== "vertical") aviso(`Infografía ${inf.id}: falta el formato ${f}.`); continue; }
+    formatos[f] = { ...x, webp: resolverUrl(x.webp), png: resolverUrl(x.png), svg: resolverUrl(x.svg), descarga: resolverUrl(x.png) };
+  }
+  return { ...inf, svg: resolverUrl(inf.svg), formatos };
+}
+
+const masReciente = (a, b) =>
+  String(b.fecha ?? "").localeCompare(String(a.fecha ?? "")) || (Number(b.version) || 0) - (Number(a.version) || 0);
+
 async function cargarSecciones() {
   const temario = JSON.parse(await readFile(desde("assets/temario.json"), "utf8"));
-  const videos = await leerManifiesto();
-
-  const porSubtema = new Map();
-  for (const v of videos) {
-    if (!v.subtemaId || !v.url) { aviso(`Video ${v.id ?? "(sin id)"} sin subtemaId o url; se ignora.`); continue; }
-    const previo = porSubtema.get(v.subtemaId);
-    // Si hay varias versiones de un mismo subtema, gana la más reciente.
-    if (!previo || (Number(v.version) || 0) > (Number(previo.version) || 0)) porSubtema.set(v.subtemaId, v);
-  }
+  const [videos, infografias] = await Promise.all([
+    leerManifiesto("videos", config.VIDEOS_MANIFEST_URL, config.VIDEOS_MANIFEST_FALLBACK),
+    leerManifiesto("infografias", config.INFOGRAFIAS_MANIFEST_URL, config.INFOGRAFIAS_MANIFEST_FALLBACK),
+  ]);
+  const videoDe = porSubtema(videos, "Video", (v) => v.url);
+  const infDe = porSubtema(infografias, "Infografía", (i) => i.formatos?.vertical?.webp || i.formatos?.vertical?.png);
 
   const secciones = [];
   const usados = new Set();
-  const conVideo = [];
+  const subtemas = [];
   for (const tema of temario.temas) {
     let s = secciones.find((x) => x.clave === tema.seccion);
     if (!s) {
@@ -100,32 +123,89 @@ async function cargarSecciones() {
     }
     const t = { id: tema.id, nombre: tema.nombre, subtemas: [] };
     for (const st of tema.subtemas) {
-      const v = porSubtema.get(st.id);
-      const sub = { id: st.id, nombre: st.nombre, video: null };
-      if (v) {
-        usados.add(st.id);
-        sub.video = {
-          ...v,
-          url: resolverUrl(v.url),
-          poster: resolverUrl(v.poster),
-          ruta: `/biblioteca/${s.slug}/${slugify(st.id)}/`,
-          seccion: s,
-          tema: t,
-          subtema: sub,
-        };
-        conVideo.push(sub.video);
-      }
+      const v = videoDe.get(st.id);
+      const inf = infDe.get(st.id);
+      // Cada subtema con video o infografía tiene su página.
+      const sub = {
+        id: st.id, nombre: st.nombre, seccion: s, tema: t, video: null, infografia: null,
+        ruta: v || inf ? `/biblioteca/${s.slug}/${slugify(st.id)}/` : null,
+      };
+      if (v) sub.video = { ...v, url: resolverUrl(v.url), poster: resolverUrl(v.poster), subtema: sub };
+      if (inf) sub.infografia = { ...normalizarInfografia(inf), subtema: sub };
+      if (sub.ruta) { usados.add(st.id); subtemas.push(sub); }
       t.subtemas.push(sub);
     }
     s.temas.push(t);
   }
-  for (const id of porSubtema.keys()) {
-    if (!usados.has(id)) aviso(`El manifiesto tiene un video para "${id}", que no está en el temario.`);
+  for (const [mapa, nombre] of [[videoDe, "un video"], [infDe, "una infografía"]]) {
+    for (const id of mapa.keys()) {
+      if (!usados.has(id)) aviso(`El manifiesto tiene ${nombre} para "${id}", que no está en el temario.`);
+    }
   }
-  // Más recientes primero: por fecha y, en empate, por versión.
-  conVideo.sort((a, b) =>
-    String(b.fecha ?? "").localeCompare(String(a.fecha ?? "")) || (Number(b.version) || 0) - (Number(a.version) || 0));
-  return { secciones, videos: conVideo };
+  return { secciones, subtemas, recientes: elegirRecientes(subtemas) };
+}
+
+// "Últimos" de la portada: videos e infografías, más recientes primero. En
+// empate de fecha se intercalan (video, infografía, video…) y cada subtema
+// aparece una sola vez, para que la lista tenga variedad.
+function elegirRecientes(subtemas, n = 6) {
+  const colas = Object.fromEntries(["video", "infografia"].map((tipo) =>
+    [tipo, subtemas.filter((st) => st[tipo]).map((st) => st[tipo]).sort(masReciente)]));
+  const vistos = new Set();
+  const elegidos = [];
+  let turno = "video";
+  // Siguiente elemento de un tipo cuyo subtema no haya salido todavía.
+  const siguiente = (tipo) => {
+    while (colas[tipo].length && vistos.has(colas[tipo][0].subtema.id)) colas[tipo].shift();
+    return colas[tipo][0];
+  };
+  while (elegidos.length < n) {
+    const otro = turno === "video" ? "infografia" : "video";
+    const [a, b] = [siguiente(turno), siguiente(otro)];
+    if (!a && !b) break;
+    // Gana el más reciente; en empate, el tipo al que le toca.
+    const tipo = !b || (a && masReciente(a, b) <= 0) ? turno : otro;
+    const x = colas[tipo].shift();
+    vistos.add(x.subtema.id);
+    elegidos.push({ tipo, st: x.subtema });
+    turno = tipo === "video" ? "infografia" : "video";
+  }
+  return elegidos;
+}
+
+// Copia los PNG de las infografías a dist/descargas/ para que "Descargar"
+// funcione: el atributo download solo se respeta en el mismo origen y R2 no
+// envía CORS. Comprueba el sha256; si algo falla, el botón enlaza a R2.
+async function copiarDescargas(subtemas) {
+  const tareas = [];
+  for (const st of subtemas) {
+    const inf = st.infografia;
+    if (!inf) continue;
+    for (const [f, x] of Object.entries(inf.formatos)) {
+      if (!x.png) continue;
+      tareas.push(async () => {
+        const rel = `descargas/doll-${slugify(st.id)}-${f}.png`;
+        try {
+          const r = await fetch(x.png, { signal: AbortSignal.timeout(30_000) });
+          if (!r.ok) throw new Error(`HTTP ${r.status}`);
+          const datos = Buffer.from(await r.arrayBuffer());
+          const esperado = x.png_sha256;
+          if (esperado && createHash("sha256").update(datos).digest("hex") !== esperado) throw new Error("sha256 distinto");
+          await escribir(rel, datos);
+          x.descarga = `/${rel}`;
+          x.png_tamaño ??= datos.length;
+        } catch (e) {
+          aviso(`No se pudo copiar ${x.png} (${e.message}); el botón enlaza a R2.`);
+        }
+      });
+    }
+  }
+  // De 8 en 8 para no saturar la conexión.
+  let siguiente = 0;
+  await Promise.all(Array.from({ length: 8 }, async () => {
+    while (siguiente < tareas.length) await tareas[siguiente++]();
+  }));
+  return tareas.length;
 }
 
 // --- Imágenes y fuentes ----------------------------------------------------
@@ -243,25 +323,35 @@ function sitemapVideo(v) {
   return `\n    <video:video>\n${campos.map(([k, valor]) => `      <${k}>${t.esc(valor)}</${k}>`).join("\n")}\n    </video:video>\n  `;
 }
 
-async function paginas(site, secciones, videos) {
+// Entradas <image:image> del sitemap: la infografía que se muestra (WebP) y
+// los PNG que se pueden descargar.
+function sitemapImagenes(site, inf) {
+  const urls = [inf.formatos.vertical?.webp, ...Object.values(inf.formatos).map((x) => x.descarga)]
+    .filter(Boolean)
+    .map((u) => (u.startsWith("/") ? site.url + u : u));
+  return [...new Set(urls)].map((u) => `\n    <image:image><image:loc>${t.esc(u)}</image:loc></image:image>`).join("") + "\n  ";
+}
+
+async function paginas(site, secciones, subtemas, recientes) {
   const rutas = [];
-  const pagina = async (ruta, html, video = null) => {
+  const pagina = async (ruta, html, st = null) => {
     const archivo = ruta.endsWith("/") ? `${ruta}index.html` : ruta;
     await escribir(archivo, html);
-    if (!ruta.endsWith(".html")) rutas.push({ ruta, video });
+    if (!ruta.endsWith(".html")) rutas.push({ ruta, st });
   };
 
-  await pagina("/", t.portada({ site, secciones, videos }));
+  await pagina("/", t.portada({ site, secciones, recientes }));
   await pagina("/biblioteca/", t.biblioteca({ site, secciones }));
   for (const s of secciones) await pagina(`/biblioteca/${s.slug}/`, t.seccion({ site, s, secciones }));
-  for (const v of videos) await pagina(v.ruta, t.paginaVideo({ site, v }), v);
+  for (const st of subtemas) await pagina(st.ruta, t.paginaSubtema({ site, st }), st);
   await pagina("/privacidad/", t.privacidad({ site }));
   await pagina("/404.html", t.noEncontrada({ site }));
 
   const hoy = new Date().toISOString().slice(0, 10);
+  const lastmod = (st) => [st?.video?.fecha, st?.infografia?.fecha].filter(Boolean).sort().at(-1) || hoy;
   await escribir("sitemap.xml", `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
-${rutas.map(({ ruta, video }) => `  <url><loc>${t.esc(site.url + ruta)}</loc><lastmod>${video?.fecha || hoy}</lastmod>${video ? sitemapVideo(video) : ""}</url>`).join("\n")}
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+${rutas.map(({ ruta, st }) => `  <url><loc>${t.esc(site.url + ruta)}</loc><lastmod>${lastmod(st)}</lastmod>${st?.video ? sitemapVideo(st.video) : ""}${st?.infografia ? sitemapImagenes(site, st.infografia) : ""}</url>`).join("\n")}
 </urlset>
 `);
   await escribir("robots.txt", `User-agent: *\nAllow: /\n\nSitemap: ${site.url}/sitemap.xml\n`);
@@ -277,7 +367,8 @@ await mkdir(DIST, { recursive: true });
 const css = await readFile(desde("src/styles.css"), "utf8");
 await escribir("styles.css", css);
 // Cabeceras (_headers, que también lee el Worker con recursos estáticos): caché larga para recursos que no cambian de nombre.
-await escribir("_headers", `/fonts/*\n  Cache-Control: public, max-age=31536000, immutable\n/img/*\n  Cache-Control: public, max-age=604800\n/*\n  X-Content-Type-Options: nosniff\n  Referrer-Policy: strict-origin-when-cross-origin\n`);
+// Las descargas cambian de contenido con cada versión de la infografía sin cambiar de nombre: caché de un día.
+await escribir("_headers", `/fonts/*\n  Cache-Control: public, max-age=31536000, immutable\n/img/*\n  Cache-Control: public, max-age=604800\n/descargas/*\n  Cache-Control: public, max-age=86400\n  Content-Disposition: attachment\n/*\n  X-Content-Type-Options: nosniff\n  Referrer-Policy: strict-origin-when-cross-origin\n`);
 
 const site = {
   url: config.SITE_URL.replace(/\/$/, ""),
@@ -285,9 +376,12 @@ const site = {
   cssHash: createHash("sha256").update(css).digest("hex").slice(0, 10),
 };
 
-const { secciones, videos } = await cargarSecciones();
-await Promise.all([imagenes(), fuentes()]);
-const rutas = await paginas(site, secciones, videos);
+const { secciones, subtemas, recientes } = await cargarSecciones();
+const [, , descargas] = await Promise.all([imagenes(), fuentes(), copiarDescargas(subtemas)]);
+const rutas = await paginas(site, secciones, subtemas, recientes);
 
+const cuenta = (f) => subtemas.filter(f).length;
+const ambos = cuenta((st) => st.video && st.infografia);
 for (const a of avisos) console.warn(`aviso: ${a}`);
-console.log(`dist/ listo en ${Date.now() - inicio} ms: ${rutas.length} páginas, ${secciones.length} secciones, videos: ${videos.length}.`);
+console.log(`dist/ listo en ${Date.now() - inicio} ms: ${rutas.length} páginas, ${secciones.length} secciones, ${descargas} PNG para descargar.`);
+console.log(`Páginas de subtema: ${subtemas.length} (con video: ${cuenta((st) => st.video)}, con infografía: ${cuenta((st) => st.infografia)}, ambos: ${ambos}, solo video: ${cuenta((st) => st.video && !st.infografia)}, solo infografía: ${cuenta((st) => !st.video && st.infografia)}).`);
